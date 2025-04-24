@@ -1,0 +1,252 @@
+/* HygieneCard.css */
+.hygiene-card {
+  width: 100%;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  color: #465462;
+  font-size: 65px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.description {
+  color: #666666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.learn-more {
+  width: 217px;
+  height: 67px;
+  color: #4c5a65b2;
+  border: 1.31px solid #4c5a65b2;
+  border-radius: 10.46px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 34px;
+  padding-left: 34px;
+}
+
+.get-started {
+  background-color: #29b6c5;
+  color: white;
+  border: none;
+  width: 217px;
+  height: 67px;
+  border-radius: 10.46px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 34px;
+  padding-left: 34px;
+}
+
+.arrow {
+  font-size: 1.1rem;
+}
+
+.stats-container {
+  display: flex;
+  gap: 3rem;
+}
+
+.stat-item {
+  flex: 1;
+}
+
+.stat-number {
+  color: #465462;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-description {
+  color: #777777;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .button-container {
+    flex-direction: column;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+/* HygieneCarousel.css */
+.hygiene-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../public/carousalBG.png"); /* Replace with actual image in production */
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* Add a semi-transparent overlay for better text visibility */
+.background-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.3)
+  );
+}
+
+.carousel-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.carousel-items {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.carousel-item {
+  display: none;
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-item.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-text h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.carousel-text p {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.arrow-icon {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.indicator {
+  width: 2rem;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+  background-color: white;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+}
+
+.control-btn {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Show multiple items stacked */
+.carousel-item + .carousel-item {
+  margin-top: 1rem;
+}

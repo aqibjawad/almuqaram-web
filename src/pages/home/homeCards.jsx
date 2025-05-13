@@ -11,7 +11,7 @@ const HomeCards = () => {
       packing: "1 x 6",
     },
     {
-      image: "/tissue.png",
+      image: "/image 1.png",
       title: "SoftCare Toilet Roll - Premium",
       description: "2 Ply, 100 x 100 mm 150 sheets",
       packing: "1 x 10",

@@ -42,7 +42,7 @@ const HomeBanner2 = () => {
   };
 
   return (
-    <div id="homeBanner2" style={{marginRight:"3rem"}}>
+    <div id="homeBanner2" className="mt-5" style={{marginRight:"3rem"}}>
       <Row>
         <Col>
           <div className="hygiene-card">

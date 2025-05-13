@@ -1,0 +1,170 @@
+/* Import Manrope font */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+/* Base Footer Styles */
+.footer-main-container {
+  background-color: #1C3A3C;
+  color: white;
+  font-family: 'Manrope', sans-serif;
+  padding: 4rem 0 2rem;
+  width: 100%;
+}
+
+/* Main Content Grid - All in one line */
+.footer-main-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+/* Company Section - Now inline with others */
+.footer-company-section {
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+.footer-logo-container {
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+}
+
+.footer-company-description {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Other Sections - Equal width */
+.footer-quicklinks-section{
+    margin-left: 5rem; 
+}
+
+.footer-products-section{
+    margin-left: 5rem; 
+}
+.footer-contact-section {
+    margin-left: 5rem; 
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+/* Headings */
+.footer-quicklinks-heading,
+.footer-products-heading,
+.footer-contact-heading,
+.footer-social-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Lists */
+.footer-quicklinks-list,
+.footer-products-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Links */
+.footer-quicklink-item,
+.footer-product-item,
+.footer-contact-link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.footer-quicklink-item:hover,
+.footer-product-item:hover,
+.footer-contact-link:hover {
+  opacity: 1;
+}
+
+/* Contact Section */
+.footer-contact-address {
+  font-style: normal;
+  line-height: 1.7;
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+/* Social Media */
+.footer-social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social-icon {
+  color: white;
+  font-size: 20px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.footer-social-icon:hover {
+  opacity: 1;
+}
+
+/* Copyright */
+.footer-copyright-section {
+  max-width: 1300px;
+  margin: 4rem auto 0;
+  padding: 1.5rem 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-copyright-text {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.footer-copyright-link {
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .footer-main-content {
+    gap: 3rem;
+  }
+  
+  .footer-company-section {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main-content {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+  }
+  
+  .footer-quicklinks-section,
+  .footer-products-section,
+  .footer-contact-section {
+    flex: 1 1 100%;
+  }
+  
+  .footer-copyright-section {
+    padding: 1.5rem 1.5rem 0;
+  }
+}

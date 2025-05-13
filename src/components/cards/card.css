@@ -1,0 +1,85 @@
+.card-container {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto; /* This will center the card horizontally */
+}
+  
+  .main-card {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(192, 16, 16, 0.1);
+    padding: 16px;
+    /* Create a cutout in the bottom right corner */
+    clip-path: polygon(
+      0% 0%,             /* Top left */
+      100% 0%,           /* Top right */
+      100% calc(100% - 24px),  /* Right side with cutout */
+      calc(100% - 24px) 100%,  /* Bottom with cutout */
+      0% 100%            /* Bottom left */
+    );
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    background-color: #ffffff;
+  }
+  
+  .product-image {
+    height: 160px;
+    object-fit: contain;
+    background-color: #ffffff;
+  }
+  
+  .product-info {
+    margin-top: 16px;
+    background-color: #ffffff;
+  }
+  
+  .product-title {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #000000;
+    margin-bottom: 8px;
+  }
+  
+  .product-description, .product-packing {
+    background-color: #ffffff;
+    color: #000000;
+    margin: 4px 0;
+  }
+  
+  .corner-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 68px;
+    height: 68px;
+    background-color: rgb(221, 219, 219);
+    border-radius: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -4px;
+    margin-bottom: -3px;
+  }
+  
+  .arrow-icon {
+    font-size: 19px;  
+    background-color: white;
+    color: #D6D6D6;      
+    border-radius: 10px;
+    padding: 20px;    
+    box-sizing: border-box; 
+}
+
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}

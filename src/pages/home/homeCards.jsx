@@ -2,41 +2,10 @@ import React from "react";
 import Cards from "../../components/cards/Cards";
 import "./index.css";
 
-const HomeCards = () => {
-  const productData = [
-    {
-      image: "/tissue.png",
-      title: "SoftCare Maxi Roll - Embossed",
-      description: "1 Ply, 200 x 230 mm 350 sheets",
-      packing: "1 x 6",
-    },
-    {
-      image: "/image 1.png",
-      title: "SoftCare Toilet Roll - Premium",
-      description: "2 Ply, 100 x 100 mm 150 sheets",
-      packing: "1 x 10",
-    },
-    {
-      image: "/tissue.png",
-      title: "SoftCare Toilet Roll - Premium",
-      description: "2 Ply, 100 x 100 mm 150 sheets",
-      packing: "1 x 10",
-    },
-    {
-      image: "/tissue.png",
-      title: "SoftCare Toilet Roll - Premium",
-      description: "2 Ply, 100 x 100 mm 150 sheets",
-      packing: "1 x 10",
-    },
-    {
-      image: "/tissue.png",
-      title: "SoftCare Toilet Roll - Premium",
-      description: "2 Ply, 100 x 100 mm 150 sheets",
-      packing: "1 x 10",
-    },
-    // Add more products as needed
-  ];
+// Import the product data
+import productData from "../../components/productData/productData";
 
+const HomeCards = () => {
   return (
     <div id="products">
       <div className="product-head mt-5">Products</div>

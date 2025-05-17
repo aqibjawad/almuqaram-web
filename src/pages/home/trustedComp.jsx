@@ -11,32 +11,32 @@ const TrustedCompanies = () => {
     const staticPartners = [
       {
         id: 1,
-        companies_image: "/images/partners/logo1.png",
+        companies_image: "/gallery1.jpg",
         link: "https://partner1.com",
       },
       {
         id: 2,
-        companies_image: "/images/partners/logo2.png",
+        companies_image: "/gallery2.jpg",
         link: "https://partner2.com",
       },
       {
         id: 3,
-        companies_image: "/images/partners/logo3.png",
+        companies_image: "/gallery3.jpg",
         link: "https://partner3.com",
       },
       {
         id: 4,
-        companies_image: "/images/partners/logo4.png",
+        companies_image: "/gallery4.jpg",
         link: "https://partner4.com",
       },
       {
         id: 5,
-        companies_image: "/images/partners/logo5.png",
+        companies_image: "/gallery5.jpg",
         link: "https://partner5.com",
       },
       {
         id: 6,
-        companies_image: "/images/partners/logo6.png",
+        companies_image: "/gallery6.jpg",
         link: "https://partner6.com",
       },
     ];

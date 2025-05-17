@@ -87,16 +87,16 @@ const Header = () => {
           >
             Gallery
           </Link>
-          <Link 
+          {/* <Link 
             to="/contact-us" 
             onClick={toggleMenu}
             style={isActive("/contact-us") ? activeLinkStyle : {}}
           >
             Contact Us
-          </Link>
+          </Link> */}
           <button className="business-button-header">
-            <Link to="https://business.mosouq.ae/" style={{ color: "white" }}>
-              Get Started
+            <Link to="contact-us" style={{ color: "white" }}>
+              Contact Us
             </Link>
           </button>
         </nav>

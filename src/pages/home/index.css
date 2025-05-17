@@ -479,9 +479,7 @@
   color: #4c5a65b2;
 }
 
-
 /* Cards Layout on Image */
-
 
 .hero-section {
   width: 100%;
@@ -576,7 +574,9 @@
   color: white;
 }
 
-.employee, .governance, .supply-chain {
+.employee,
+.governance,
+.supply-chain {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
@@ -595,7 +595,7 @@
   .hero-text h1 {
     font-size: 2.2rem;
   }
-  
+
   .card {
     min-height: 220px;
   }
@@ -605,11 +605,11 @@
   .info-cards {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .hero-content {
     height: 60vh;
   }
-  
+
   .background-image,
   .overlay {
     height: 60%;
@@ -622,23 +622,23 @@
     height: auto;
     padding-bottom: 1rem;
   }
-  
+
   .hero-tagline {
     text-align: left;
     margin-top: 1rem;
     max-width: 100%;
   }
-  
+
   .info-cards {
     margin-top: 2rem;
     grid-template-columns: 1fr;
   }
-  
+
   .background-image,
   .overlay {
     height: 50vh;
   }
-  
+
   .hero-text h1 {
     font-size: 2rem;
   }
@@ -648,32 +648,32 @@
   .hero-content {
     padding: 1.5rem;
   }
-  
+
   .hero-text h1 {
     font-size: 1.8rem;
   }
-  
+
   .hero-tagline p {
     font-size: 1rem;
   }
-  
+
   .info-cards {
     padding: 0 1.5rem 1.5rem;
   }
-  
+
   .card {
     min-height: auto;
     padding: 1.2rem;
   }
-  
+
   .card h2 {
     font-size: 1.2rem;
   }
-  
+
   .card p {
     font-size: 0.9rem;
   }
-  
+
   .background-image,
   .overlay {
     height: 40vh;
@@ -684,8 +684,38 @@
   .hero-text h1 {
     font-size: 1.6rem;
   }
-  
+
   .hero-tagline p {
     font-size: 0.9rem;
   }
+}
+
+/* --------------------------- Home Demads section ----------------------- */
+
+.demands-heading {
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 100%;
+  color: #1c3a3c;
+  padding-left: 100px;
+  padding-top: 100px;
+}
+
+.contactUsBtn {
+  width: 258px;
+  height: 70px;
+  border-radius: 8px;
+  gap: 10px;
+  background-color: #30afb8;
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  display: flex; /* ADD THIS */
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
 }

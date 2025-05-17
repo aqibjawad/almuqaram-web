@@ -8,11 +8,11 @@ import HomeWork from "./homeWork";
 import HomeRsult from "./homeResult";
 import HomeAchievement from "./homeAchievements";
 import HomeTestinomial from "./homeTestinomial";
-// import HomeDemands from "./homeDeamds";
+import HomeDemands from "./homeDeamds";
 
 const Home = () => {
   return (
-    <div>
+    <div id="demandPage" className="demands">
       <div style={{ marginTop: "5rem", marginLeft: "3rem" }}>
         <HomeBanner />
         <HomeBanner2 />
@@ -24,7 +24,7 @@ const Home = () => {
         <HomeRsult />
       </div>
       <HomeTestinomial />
-      {/* <HomeDemands /> */}
+      <HomeDemands />
     </div>
   );
 };

@@ -13,19 +13,19 @@ const productData = [
     packing: "1 x 10",
   },
   {
-    image: "/tissue.png",
+    image: "/gallery2.jpg",
     title: "SoftCare Toilet Roll - Premium",
     description: "2 Ply, 100 x 100 mm 150 sheets",
     packing: "1 x 10",
   },
   {
-    image: "/tissue.png",
+    image: "/gallery3.jpg",
     title: "SoftCare Toilet Roll - Premium",
     description: "2 Ply, 100 x 100 mm 150 sheets",
     packing: "1 x 10",
   },
   {
-    image: "/tissue.png",
+    image: "/gallery4.jpg",
     title: "SoftCare Toilet Roll - Premium",
     description: "2 Ply, 100 x 100 mm 150 sheets",
     packing: "1 x 10",

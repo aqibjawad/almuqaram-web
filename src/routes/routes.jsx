@@ -2,6 +2,7 @@ import Home from "../pages/home";
 import Contact from "../pages/contact";
 import Products from "../pages/products/page";
 import Gallery from "../pages/gallery/page";
+import AboutUs from "../pages/about";
 
 const routes = [
   {
@@ -25,6 +26,12 @@ const routes = [
   {
     path: "/gallery",
     element: <Gallery />,
+    exact: "true",
+    type: "public",
+  },
+    {
+    path: "/about-us",
+    element: <AboutUs />,
     exact: "true",
     type: "public",
   },

@@ -1,0 +1,98 @@
+.aboutBanner {
+  overflow: hidden;
+  padding: 2rem;
+  background-color: white;
+  margin-top: 7rem;
+  margin-right: 3rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+.aboutHead {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 100%;
+  color: #4c5a65;
+}
+
+.aboutDescrp {
+  font-weight: 800;
+  font-size: 74.3px;
+  line-height: 91px;
+  color: #4c5a65;
+}
+
+.descrpAbut {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: justify;
+  color: #4c5a65;
+}
+
+.lernMore,
+.contBtn {
+  width: 217px;
+  height: 68px;
+  border-radius: 10.46px;
+  padding: 20.92px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Adjust spacing between text and icon */
+  font-size: 16px; /* Adjust font size as needed */
+  margin-top: 3rem;
+}
+
+/* Specific styles for Learn More */
+.lernMore {
+  border: 1.31px solid #4c5a65;
+  color: #4c5a65;
+  font-weight: 400;
+}
+
+/* Specific styles for Get Started */
+.contBtn {
+  background: #30afb8;
+  color: white;
+  font-weight: 700;
+  font-size: 20.92px;
+  line-height: 130%;
+}
+
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  margin-top: 2rem;
+  align-items: center;
+  padding: 30px;
+  border-radius: 10px;
+  margin-right: 3rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937; /* Dark gray */
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #6b7280; /* Light gray */
+}

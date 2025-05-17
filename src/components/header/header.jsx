@@ -46,9 +46,9 @@ const Header = () => {
             Home
           </Link>
           <Link 
-            to="/categories" 
+            to="/about-us" 
             onClick={toggleMenu}
-            style={isActive("/categories") ? activeLinkStyle : {}}
+            style={isActive("/about-us") ? activeLinkStyle : {}}
           >
             About Us
           </Link>

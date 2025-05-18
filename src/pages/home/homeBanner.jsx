@@ -7,7 +7,7 @@ const HomeBanner = () => {
       className="pt-5"
     >
       <div>
-        <img style={{width:"50%"}} src="/bannerImage.png" />
+        <img style={{width:"95%"}} src="/bannerImage.png" />
       </div>
     </div>
   );

@@ -2,114 +2,124 @@ import React, { useState, useEffect } from "react";
 import "./header.css";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link, useLocation } from "react-router-dom";
-import { Container } from "react-bootstrap";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [businessMode, setBusinessMode] = useState(false);
   const location = useLocation();
-
-  const toggleMenu = () => {
+  
+  // Close menu when clicking outside or changing route
+  useEffect(() => {
+    const closeMenu = () => setMenuOpen(false);
+    
+    // Close menu when route changes
+    closeMenu();
+    
+    // Add event listener to close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      const isNavLink = e.target.closest(".nav-links");
+      const isMenuIcon = e.target.closest(".menu-icon");
+      
+      if (!isNavLink && !isMenuIcon) {
+        closeMenu();
+      }
+    });
+    
+    return () => {
+      document.removeEventListener("click", closeMenu);
+    };
+  }, [location]);
+  
+  const toggleMenu = (e) => {
+    e.stopPropagation();
     setMenuOpen(!menuOpen);
   };
-
+  
   // Function to check if the link is active
   const isActive = (path) => {
     return location.pathname === path;
   };
-
+  
   // Style for active links
   const activeLinkStyle = {
-    color: "#30AFB8"
+    color: "#30AFB8",
+    fontWeight: "700"
   };
-
+  
   return (
-    <header className="header shadow-sm py-3">
-      <Container
-        fluid
-        className="px-3 px-md-5 justify-content-between align-items-center d-flex"
-      >
-        {/* logo */}
-        <Link style={{ textDecoration: "none" }} to={"/"} className="logo">
-          <div>
-            <img src="/logo.png" alt="Logo" />
-          </div>
+    <header className="header shadow-sm">
+      <div className="header-container">
+        {/* Logo */}
+        <Link to="/" className="logo">
+          <img src="/logo.png" alt="Logo" />
         </Link>
-
-        {/* menu bar */}
-        <nav className={`nav-links px-3 ${menuOpen ? "open" : ""}`}>
-          <Link 
-            to="/" 
-            onClick={toggleMenu}
+        
+        {/* Navigation Links */}
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
             style={isActive("/") ? activeLinkStyle : {}}
           >
             Home
           </Link>
-          <Link 
-            to="/about-us" 
-            onClick={toggleMenu}
+          <Link
+            to="/about-us"
+            onClick={() => setMenuOpen(false)}
             style={isActive("/about-us") ? activeLinkStyle : {}}
           >
             About Us
           </Link>
-          <Link 
-            to="/deals" 
-            onClick={toggleMenu}
+          <Link
+            to="/deals"
+            onClick={() => setMenuOpen(false)}
             style={isActive("/deals") ? activeLinkStyle : {}}
           >
             Our Values
           </Link>
-          <Link 
-            to="/about" 
-            onClick={toggleMenu}
+          <Link
+            to="/about"
+            onClick={() => setMenuOpen(false)}
             style={isActive("/about") ? activeLinkStyle : {}}
           >
             Certifications
           </Link>
-          <Link 
-            to="/products" 
-            onClick={toggleMenu}
+          <Link
+            to="/products"
+            onClick={() => setMenuOpen(false)}
             style={isActive("/products") ? activeLinkStyle : {}}
           >
             Products
           </Link>
-          <Link 
-            to="/brands" 
-            onClick={toggleMenu}
+          <Link
+            to="/brands"
+            onClick={() => setMenuOpen(false)}
             style={isActive("/brands") ? activeLinkStyle : {}}
           >
             Brands
           </Link>
-          <Link 
-            to="/gallery" 
-            onClick={toggleMenu}
+          <Link
+            to="/gallery"
+            onClick={() => setMenuOpen(false)}
             style={isActive("/gallery") ? activeLinkStyle : {}}
           >
             Gallery
           </Link>
-          {/* <Link 
-            to="/contact-us" 
-            onClick={toggleMenu}
-            style={isActive("/contact-us") ? activeLinkStyle : {}}
-          >
-            Contact Us
-          </Link> */}
           <button className="business-button-header">
-            <Link to="contact-us" style={{ color: "white" }}>
+            <Link to="/contact-us" style={{ color: "white", textDecoration: "none" }}>
               Contact Us
             </Link>
           </button>
         </nav>
-
-        {/* toggle button */}
+        
+        {/* Menu Toggle Button */}
         <div className="menu-icon" onClick={toggleMenu}>
           {menuOpen ? (
-            <AiOutlineClose size={30} />
+            <AiOutlineClose size={24} />
           ) : (
-            <AiOutlineMenu size={30} />
+            <AiOutlineMenu size={24} />
           )}
         </div>
-      </Container>
+      </div>
     </header>
   );
 };

@@ -1,85 +1,132 @@
 .card-container {
-    position: relative;
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto; /* This will center the card horizontally */
-}
-  
-  .main-card {
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(192, 16, 16, 0.1);
-    padding: 16px;
-    /* Create a cutout in the bottom right corner */
-    clip-path: polygon(
-      0% 0%,             /* Top left */
-      100% 0%,           /* Top right */
-      100% calc(100% - 24px),  /* Right side with cutout */
-      calc(100% - 24px) 100%,  /* Bottom with cutout */
-      0% 100%            /* Bottom left */
-    );
-  }
-  
-  .image-container {
-    display: flex;
-    justify-content: center;
-    padding: 16px;
-    background-color: #ffffff;
-  }
-  
-  .product-image {
-    height: 160px;
-    object-fit: contain;
-    background-color: #ffffff;
-  }
-  
-  .product-info {
-    margin-top: 16px;
-    background-color: #ffffff;
-  }
-  
-  .product-title {
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #ffffff;
-    color: #000000;
-    margin-bottom: 8px;
-  }
-  
-  .product-description, .product-packing {
-    background-color: #ffffff;
-    color: #000000;
-    margin: 4px 0;
-  }
-  
-  .corner-icon {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 68px;
-    height: 68px;
-    background-color: rgb(221, 219, 219);
-    border-radius: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: -4px;
-    margin-bottom: -3px;
-  }
-  
-  .arrow-icon {
-    font-size: 19px;  
-    background-color: white;
-    color: #D6D6D6;      
-    border-radius: 10px;
-    padding: 20px;    
-    box-sizing: border-box; 
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto; /* Center the card horizontally */
+  transition: all 0.3s ease;
 }
 
+.main-card {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(192, 16, 16, 0.1);
+  padding: 16px;
+  /* Create a cutout in the bottom right corner */
+  clip-path: polygon(
+    0% 0%,
+    /* Top left */ 100% 0%,
+    /* Top right */ 100% calc(100% - 24px),
+    /* Right side with cutout */ calc(100% - 24px) 100%,
+    /* Bottom with cutout */ 0% 100% /* Bottom left */
+  );
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  background-color: #ffffff;
+}
+
+.product-image {
+  height: 160px;
+  width: 100%;
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
+.product-info {
+  margin-top: 16px;
+  background-color: #ffffff;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.product-description,
+.product-packing {
+  background-color: #ffffff;
+  color: #000000;
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.corner-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 68px;
+  height: 68px;
+  background-color: rgb(221, 219, 219);
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -4px;
+  margin-bottom: -3px;
+}
+
+.arrow-icon {
+  font-size: 19px;
+  background-color: white;
+  color: #d6d6d6;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
 .cards-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
   padding: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .card-container {
+    max-width: 100%;
+  }
+
+  .product-title {
+    font-size: 18px;
+  }
+
+  .corner-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .arrow-icon {
+    font-size: 16px;
+    padding: 16px;
+  }
 }

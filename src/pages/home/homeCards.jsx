@@ -6,6 +6,9 @@ import "./index.css";
 import productData from "../../components/productData/productData";
 
 const HomeCards = () => {
+  // Limit products to only the first 6 items
+  const limitedProducts = productData.slice(0, 8);
+  
   return (
     <div id="products">
       <div className="product-head mt-5">Products</div>
@@ -16,7 +19,7 @@ const HomeCards = () => {
         growing converters of hygienic paper products dealing in two Brands
       </div>
       <div className="mt-5">
-        <Cards products={productData} />
+        <Cards products={limitedProducts} />
       </div>
     </div>
   );

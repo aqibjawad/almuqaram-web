@@ -3,7 +3,8 @@ import "./about.css"
 import AboutBanner from "./aboutBanner";
 import StatsSection from "./aboutStats";
 import AboutCare from "./aboutCare";
-import Certifications from "./aboutCertificate";
+// import Certifications from "./aboutCertificate";
+import Certification from "../certification/certification";
 import AboutSection from "./aboutSection";
 import TrustedCompanies from "./aboutCompanies";
 import ProductDevelopment from "./aboutDevelopment";
@@ -19,7 +20,7 @@ const AboutUs = () => {
         </div>
         <ProductDevelopment />
         <AboutCare />
-        <Certifications />
+        <Certification />
         <AboutSection />
         <TrustedCompanies />
         <AboutBrand />

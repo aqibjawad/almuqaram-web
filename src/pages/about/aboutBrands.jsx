@@ -1,7 +1,5 @@
 import React from "react";
 import "./about.css";
-// import softcareLogo from './softcare.png'; // Replace with actual path
-// import petalsLogo from './petals.png';     // Replace with actual path
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 const AboutBrand = () => {
@@ -15,13 +13,10 @@ const AboutBrand = () => {
       <div className="brands-cards">
         <div className="brand-card">
           <div className="brand-logo">
-            <img
-              src="/out of order/8325 - Alum Container/7.jpg"
-              alt="Softcare"
-            />
+            <img src="/Achieve2.png" alt="Softcare" />
           </div>
           <div className="brand-footer">
-            <span>Softcare</span>
+            <span>Petals</span>
             <button className="brand-button">
               <FaArrowUpRightFromSquare />
             </button>
@@ -30,13 +25,10 @@ const AboutBrand = () => {
 
         <div className="brand-card">
           <div className="brand-logo">
-            <img
-              src="/out of order/Alum Foil 1000 g 30 cm/16.jpg"
-              alt="Petals"
-            />
-          </div>    
+            <img src="/Achieve1.png" alt="Petals" />
+          </div>
           <div className="brand-footer">
-            <span>Petals</span>
+            <span>Softcare</span>
             <button className="brand-button">
               <FaArrowUpRightFromSquare />
             </button>

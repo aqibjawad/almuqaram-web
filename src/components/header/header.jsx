@@ -6,45 +6,45 @@ import { Link, useLocation } from "react-router-dom";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  
+
   // Close menu when clicking outside or changing route
   useEffect(() => {
     const closeMenu = () => setMenuOpen(false);
-    
+
     // Close menu when route changes
     closeMenu();
-    
+
     // Add event listener to close menu when clicking outside
     document.addEventListener("click", (e) => {
       const isNavLink = e.target.closest(".nav-links");
       const isMenuIcon = e.target.closest(".menu-icon");
-      
+
       if (!isNavLink && !isMenuIcon) {
         closeMenu();
       }
     });
-    
+
     return () => {
       document.removeEventListener("click", closeMenu);
     };
   }, [location]);
-  
+
   const toggleMenu = (e) => {
     e.stopPropagation();
     setMenuOpen(!menuOpen);
   };
-  
+
   // Function to check if the link is active
   const isActive = (path) => {
     return location.pathname === path;
   };
-  
+
   // Style for active links
   const activeLinkStyle = {
     color: "#30AFB8",
-    fontWeight: "700"
+    fontWeight: "700",
   };
-  
+
   return (
     <header className="header shadow-sm">
       <div className="header-container">
@@ -52,7 +52,7 @@ const Header = () => {
         <Link to="/" className="logo">
           <img src="/logo.png" alt="Logo" />
         </Link>
-        
+
         {/* Navigation Links */}
         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
           <Link
@@ -70,16 +70,9 @@ const Header = () => {
             About Us
           </Link>
           <Link
-            to="/deals"
+            to="/certifications"
             onClick={() => setMenuOpen(false)}
-            style={isActive("/deals") ? activeLinkStyle : {}}
-          >
-            Our Values
-          </Link>
-          <Link
-            to="/about"
-            onClick={() => setMenuOpen(false)}
-            style={isActive("/about") ? activeLinkStyle : {}}
+            style={isActive("/certifications") ? activeLinkStyle : {}}
           >
             Certifications
           </Link>
@@ -105,12 +98,15 @@ const Header = () => {
             Gallery
           </Link>
           <button className="business-button-header">
-            <Link to="/contact-us" style={{ color: "white", textDecoration: "none" }}>
+            <Link
+              to="/contact-us"
+              style={{ color: "white", textDecoration: "none" }}
+            >
               Contact Us
             </Link>
           </button>
         </nav>
-        
+
         {/* Menu Toggle Button */}
         <div className="menu-icon" onClick={toggleMenu}>
           {menuOpen ? (

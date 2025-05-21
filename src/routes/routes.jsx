@@ -3,6 +3,8 @@ import Contact from "../pages/contact";
 import Products from "../pages/products/page";
 import Gallery from "../pages/gallery/page";
 import AboutUs from "../pages/about";
+import Brands from "../pages/brands";
+import Certification from "../pages/certification/certification";
 
 const routes = [
   {
@@ -29,9 +31,21 @@ const routes = [
     exact: "true",
     type: "public",
   },
-    {
+  {
     path: "/about-us",
     element: <AboutUs />,
+    exact: "true",
+    type: "public",
+  },
+  {
+    path: "/brands",
+    element: <Brands />,
+    exact: "true",
+    type: "public",
+  },
+  {
+    path: "/certifications",
+    element: <Certification />,
     exact: "true",
     type: "public",
   },

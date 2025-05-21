@@ -1,15 +1,31 @@
+.aboutSectionIndex{
+  background-color: #F0F0F0;
+  margin-right: 3rem;
+  border-radius: 20px;
+  height: 1400px;
+}
+
 .aboutBanner {
   overflow: hidden;
   padding: 2rem;
-  background-color: white;
+  /* background-color: white; */
   margin-top: 7rem;
   margin-right: 3rem;
+  margin-left: 3rem;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
+}
+
+.bannerImage{
+  height: 690px;
+  width: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-top: 5rem;
 }
 
 .aboutHead {
@@ -69,7 +85,8 @@
   display: flex;
   justify-content: space-around;
   background-color: white;
-  margin-top: 2rem;
+  margin-top: 7rem;
+  margin-left: 3rem;
   align-items: center;
   padding: 30px;
   border-radius: 10px;
@@ -94,6 +111,118 @@
   font-size: 14px;
   color: #6b7280; /* Light gray */
 }
+
+/* Large screens (e.g., desktops > 1200px) */
+@media (min-width: 1200px) {
+  .aboutBanner {
+    flex-direction: row;
+  }
+
+  .bannerImage {
+    height: 690px;
+    width: 100%;
+  }
+
+  .stats-container {
+    flex-direction: row;
+  }
+}
+
+/* Medium screens (tablets between 768px and 1200px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .aboutBanner {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    margin: 5rem 2rem 0 2rem;
+    text-align: center;
+  }
+
+  .aboutDescrp {
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  .descrpAbut {
+    font-size: 20px;
+  }
+
+  .bannerImage {
+    height: auto;
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+
+  .stats-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .stat-item {
+    flex: 1 1 40%;
+  }
+}
+
+/* Small screens (mobile < 768px) */
+@media (max-width: 767px) {
+  .aboutBanner {
+    flex-direction: column;
+    margin: 5rem 1rem 0 1rem;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .aboutHead {
+    font-size: 20px;
+  }
+
+  .aboutDescrp {
+    font-size: 36px;
+    line-height: 45px;
+  }
+
+  .descrpAbut {
+    font-size: 16px;
+  }
+
+  .lernMore,
+  .contBtn {
+    width: 100%;
+    font-size: 16px;
+    height: auto;
+    padding: 15px;
+    margin-top: 1rem;
+  }
+
+  .bannerImage {
+    height: auto;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 3rem 1rem 0 1rem;
+    padding: 1.5rem;
+  }
+
+  .stat-item {
+    width: 100%;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+}
+
 
 /* About Product Development */
 

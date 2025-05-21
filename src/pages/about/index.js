@@ -1,6 +1,7 @@
 import React from "react";
+import "./about.css"
 import AboutBanner from "./aboutBanner";
-import StatsSection from "./aboutStats"
+import StatsSection from "./aboutStats";
 import AboutCare from "./aboutCare";
 import Certifications from "./aboutCertificate";
 import AboutSection from "./aboutSection";
@@ -12,9 +13,11 @@ const AboutUs = () => {
   return (
     <div id="about" className="abouut">
       <div style={{ marginTop: "5rem", marginLeft: "3rem" }}>
-        <AboutBanner />
+        <div className="aboutSectionIndex">
+          <AboutBanner />
+          <StatsSection />
+        </div>
         <ProductDevelopment />
-        <StatsSection />
         <AboutCare />
         <Certifications />
         <AboutSection />

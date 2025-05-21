@@ -83,11 +83,11 @@ const Gallery = () => {
     <div className="gallery-container">
       <h2 className="gallery-title">Our Gallery</h2>
       <p className="gallery-subtitle">
-        We’re here to assist you with any inquiries, partnership opportunities, or product information.
-        Reach out to us, and our dedicated team will respond promptly to support your needs.
+        We’re here to assist you with any inquiries, partnership opportunities, or <br /> product information.
+        Reach out to us, and our dedicated team will respond <br /> promptly to support your needs.
       </p>
 
-      <div className="gallery-buttons">
+      <div className="gallery-buttons mt-5">
         <button className={activeTab === 'ALL' ? 'active' : ''} onClick={() => handleTabClick('ALL')}>ALL</button>
         <button className={activeTab === 'Latest Videos' ? 'active' : ''} onClick={() => handleTabClick('Latest Videos')}>Latest Videos</button>
         <button className={activeTab === 'Latest Photos' ? 'active' : ''} onClick={() => handleTabClick('Latest Photos')}>Latest Photos</button>

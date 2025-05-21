@@ -16,11 +16,11 @@ const ContactForm = () => {
             <span>1</span>
           </div>
           <span className="step-text">Contact Info</span>
-          <div className="step-line"></div>
+          {/* <div className="step-line"></div>
           <div className={`step-number ${step === 2 ? 'active' : ''}`}>
             <span>2</span>
-          </div>
-          <span className="step-text">Business Details</span>
+          </div> */}
+          {/* <span className="step-text">Business Details</span> */}
         </div>
         
         <div className="form-fields">

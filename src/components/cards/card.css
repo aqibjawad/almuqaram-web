@@ -3,12 +3,14 @@
 .image-container {
   display: flex;
   justify-content: center;
-  /* background-color: #ffffff; */
+  padding: 16px;
+  background-color: #ffffff;
 }
 
 .card-container {
   position: relative;
   width: 100%;
+  max-width: 350px;
   margin: 0 auto; /* Center the card horizontally */
   transition: all 0.3s ease;
 }
@@ -17,6 +19,7 @@
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(192, 16, 16, 0.1);
+  padding: 12px; /* Reduced padding */
   clip-path: polygon(
     0% 0%,
     100% 0%,
@@ -44,7 +47,7 @@
 .product-title {
   font-size: 18px; /* Slightly reduced */
   margin-bottom: 6px;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 .product-description,

@@ -158,7 +158,7 @@ textarea:focus {
 @media (max-width: 768px) {
   .form-container {
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 10rem;
   }
 
   .form-sidebar,
@@ -179,7 +179,10 @@ textarea:focus {
 
 @media (max-width: 480px) {
   .form-container {
-    margin: 5rem 0.5rem;
+    /* margin: 7rem 0.5rem; */
+    margin-top: 8rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 
   .form-sidebar {
@@ -215,7 +218,7 @@ textarea:focus {
 
 @media (max-width: 375px) {
   .form-container {
-    margin-top: 5rem;
+    margin-top: 8rem;
   }
 
   .step-indicator {

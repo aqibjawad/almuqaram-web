@@ -40,7 +40,7 @@ const Products = () => {
     <div
       fluid
       className="px-0 overflow-hidden"
-      style={{ marginTop: "6rem", marginRight: "2rem" }}
+      style={{ marginTop: "12rem", marginRight: "3rem" }}
     >
       <Row className="mx-0">
         <Col xs={12} md={3}>

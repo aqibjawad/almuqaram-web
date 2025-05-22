@@ -8,7 +8,7 @@ const ProductBanner = () => {
       <div className="banner-text">
         <h2>Our Product</h2>
         <p>Explore Our Hygiene Range</p>
-      </div>
+      </div> 
     </div>
   );
 };

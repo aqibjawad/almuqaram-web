@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp, Plus, Minus } from "lucide-react";
+import { ChevronDown, ChevronUp, Plus, Minus, Menu, X } from "lucide-react";
 import Cards from "../../components/cards/Cards";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -18,6 +18,7 @@ const Products = () => {
   });
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [sidebarOpen, setSidebarOpen] = useState(false); // Sidebar toggle state
   const productsPerPage = 10;
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -36,16 +37,77 @@ const Products = () => {
     });
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <div
       fluid
-      className="px-0 overflow-hidden"
+      className="px-0 overflow-hidden position-relative"
       style={{ marginTop: "12rem", marginRight: "3rem" }}
     >
+      {/* Mobile Sidebar Toggle Button */}
+      <button
+        className="btn btn-primary d-md-none position-fixed sidebar-toggle-btn"
+        style={{
+          top: "130px",
+          left: sidebarOpen ? "260px" : "15px",
+          zIndex: 1050,
+          borderRadius: "50%",
+          width: "50px",
+          height: "50px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "all 0.3s ease"
+        }}
+        onClick={toggleSidebar}
+        aria-label="Toggle Sidebar"
+      >
+        {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
+      </button>
+
+      {/* Backdrop for mobile sidebar */}
+      {sidebarOpen && (
+        <div
+          className="position-fixed w-100 h-100 d-md-none"
+          style={{
+            top: 0,
+            left: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            zIndex: 1040
+          }}
+          onClick={toggleSidebar}
+        />
+      )}
+
       <Row className="mx-0">
         <Col xs={12} md={3}>
-          <CategoriesSidebar />
+          {/* Desktop Sidebar - Always visible on medium+ screens */}
+          <div className="d-none d-md-block">
+            <CategoriesSidebar />
+          </div>
+          
+          {/* Mobile Sidebar - Toggleable */}
+          <div
+            className={`d-md-none position-fixed h-100 bg-white ${
+              sidebarOpen ? "d-block" : "d-none"
+            }`}
+            style={{
+              top: 0,
+              left: 0,
+              width: "250px",
+              zIndex: 1045,
+              overflowY: "auto",
+              paddingTop: "20px",
+              boxShadow: "2px 0 5px rgba(0,0,0,0.1)"
+            }}
+          >
+            <CategoriesSidebar />
+          </div>
         </Col>
+        
         <Col xs={12} md={9} className="p-2">
           <div className="mt-3">
             <ProductBanner />

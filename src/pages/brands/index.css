@@ -1,5 +1,41 @@
-.brandImage{
+.brandImage {
     width: 93%;
     margin-left: 3rem;
-    margin-top: 7rem;
+    margin-top: 8rem;
+}
+
+/* Tablet styles (768px and below) */
+@media screen and (max-width: 768px) {
+    .brandImage {
+        width: 90%;
+        margin-left: 2rem;
+        margin-top: 7rem;
+    }
+}
+
+/* Mobile styles (480px and below) */
+@media screen and (max-width: 480px) {
+    .brandImage {
+        width: 95%;
+        margin-left: 1rem;
+        margin-top:6rem;
+    }
+}
+
+/* Small mobile styles (320px and below) */
+@media screen and (max-width: 320px) {
+    .brandImage {
+        width: 98%;
+        margin-left: 0.5rem;
+        margin-top: 5rem;
+    }
+}
+
+/* Large desktop styles (1200px and above) */
+@media screen and (min-width: 1200px) {
+    .brandImage {
+        width: 90%;
+        margin-left: 4rem;
+        margin-top: 8rem;
+    }
 }

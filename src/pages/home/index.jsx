@@ -17,12 +17,12 @@ const Home = () => {
         <HomeBanner />
         <HomeBanner2 />
         <HomeCards />
-        <Cards />
         {/* <TrustedCompanies /> */}
         <HomeWork />
-        <HomeAchievement />
         <HomeRsult />
       </div>
+      <HomeAchievement />
+      <Cards />
       <HomeTestinomial />
       <HomeDemands />
     </div>

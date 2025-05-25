@@ -1,0 +1,437 @@
+/* How It Works Component CSS */
+
+.how-it-works-container {
+  margin-right: 3rem;
+}
+
+/* Grid Layout */
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.how-it-works-left {
+  width: 100%;
+}
+
+.how-it-works-right {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.placeholder-text {
+  color: #6c757d;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.how-it-works-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header Styles */
+.how-it-works-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.how-it-works-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #30afb8, #2a9aa3);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(48, 175, 184, 0.3);
+  display: inline-block;
+  transform: perspective(1000px) rotateX(5deg);
+  transition: all 0.3s ease;
+}
+
+.how-it-works-title:hover {
+  transform: perspective(1000px) rotateX(0deg) scale(1.05);
+}
+
+/* Accordion Styles */
+.accordion-container {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-item.active {
+  background: linear-gradient(135deg, #f8f9ff, #ffffff);
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.accordion-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(48, 175, 184, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.accordion-header:hover::before {
+  left: 100%;
+}
+
+.accordion-header:hover {
+  background: linear-gradient(135deg, #f8f9ff, #f0f4ff);
+  transform: translateX(5px);
+}
+
+/* Step Number Styles */
+.step-number {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #30afb8, #2a9aa3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-right: 1.25rem;
+  box-shadow: 0 5px 15px rgba(48, 175, 184, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.accordion-header:hover .step-number {
+  transform: scale(1.1) rotate(360deg);
+  box-shadow: 0 8px 25px rgba(48, 175, 184, 0.4);
+}
+
+/* Step Title Styles */
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  flex: 1;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Arrow Icon Styles */
+.accordion-arrow {
+  width: 2rem;
+  height: 2rem;
+  color: #9ca3af;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.accordion-item.active .accordion-arrow {
+  transform: rotate(180deg);
+  color: #30afb8;
+}
+
+/* Content Styles */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 200px;
+}
+
+.accordion-body {
+  padding: 1.5rem;
+  padding-left: 4rem;
+  color: #6b7280;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  border-left: 4px solid #30afb8;
+  margin-left: 1.5rem;
+  background: white;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* CTA Section Styles */
+.cta-section {
+  text-align: center;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.get-started-btn {
+  background: linear-gradient(135deg, #30afb8, #2a9aa3);
+  color: white;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(48, 175, 184, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.get-started-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.get-started-btn:hover::before {
+  left: 100%;
+}
+
+.get-started-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(48, 175, 184, 0.4);
+}
+
+.learn-more-btn {
+  background: transparent;
+  color: #30afb8;
+  border: 2px solid #30afb8;
+  padding: 0.875rem 2.5rem;
+  border-radius: 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+  background: #30afb8;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(48, 175, 184, 0.3);
+}
+
+/* Floating Elements */
+.floating-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(48, 175, 184, 0.1);
+}
+
+.floating-circle-1 {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  left: 10%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-circle-2 {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  right: 10%;
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+.floating-circle-3 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  left: 20%;
+  animation: float 8s ease-in-out infinite 4s;
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .how-it-works-right {
+    min-height: 300px;
+  }
+
+  .empty-placeholder {
+    min-height: 250px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cta-section {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .get-started-btn,
+  .learn-more-btn {
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-it-works-container {
+    padding: 1rem;
+  }
+
+  .how-it-works-card {
+    padding: 1.5rem;
+  }
+
+  .how-it-works-title {
+    font-size: 2rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .accordion-header {
+    padding: 1rem;
+  }
+
+  .step-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+  }
+
+  .step-title {
+    font-size: 1.125rem;
+  }
+
+  .accordion-body {
+    padding: 1rem;
+    padding-left: 3rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .how-it-works-card {
+    padding: 1rem;
+  }
+
+  .how-it-works-title {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .accordion-header {
+    padding: 0.75rem;
+  }
+
+  .step-number {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.875rem;
+    margin-right: 0.75rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+  }
+
+  .accordion-body {
+    padding: 0.75rem;
+    padding-left: 2.5rem;
+    margin-left: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .get-started-btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+
+  .learn-more-btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+}

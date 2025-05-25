@@ -1,9 +1,9 @@
 import React from "react";
+import "./cards.css";
 
 function Cards() {
   const cardStyles = {
     heroSection: {
-      width: "100%",
       minHeight: "100vh",
       position: "relative",
       color: "white",
@@ -16,12 +16,11 @@ function Cards() {
       position: "absolute",
       top: 0,
       left: 0,
-      width: "99%",
+      width: "100%",
       height: "70%",
       objectFit: "cover",
       zIndex: 0,
-      marginRight: "5rem",
-      borderRadius:"20PX"
+      borderRadius: "20px",
     },
     overlay: {
       position: "absolute",
@@ -34,27 +33,34 @@ function Cards() {
     heroContent: {
       display: "flex",
       justifyContent: "space-between",
-      alignItems: "flex-start",
-      padding: "2rem",
+      alignItems: "center",
+      padding: "3rem 2rem",
       position: "relative",
       zIndex: 2,
       height: "45vh",
       width: "100%",
     },
     heroTitle: {
-      fontSize: "2.5rem",
+      fontSize: "3rem",
       fontWeight: "bold",
       lineHeight: 1.2,
-      marginBottom: "1rem",
-      textShadow: "0 2px 4px rgba(0, 0, 0, 0.5)",
+      marginBottom: "0",
+      textShadow: "0 2px 4px rgba(0, 0, 0, 0.7)",
+      textAlign: "center",
+      marginTop:"3rem",
+      flex: 1,
     },
     heroTagline: {
       textAlign: "right",
-      maxWidth: "300px",
+      maxWidth: "350px",
+      marginRight: "2rem",
     },
     taglineText: {
-      fontSize: "1.1rem",
-      textShadow: "0 1px 3px rgba(0, 0, 0, 0.5)",
+      fontSize: "1.2rem",
+      textShadow: "0 1px 3px rgba(0, 0, 0, 0.7)",
+      fontWeight: "500",
+      textAlign:"center",
+      marginTop:"3rem"
     },
     infoCards: {
       display: "grid",
@@ -69,35 +75,46 @@ function Cards() {
     },
     card: {
       padding: "1.5rem",
-      borderRadius: "8px",
+      borderRadius: "12px",
       color: "#333",
       minHeight: "190px",
       display: "flex",
       flexDirection: "column",
-      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      transition: "all 0.3s ease",
       boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
       boxSizing: "border-box",
+      cursor: "pointer",
     },
     cardHover: {
-      transform: "translateY(-5px)",
-      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+      transform: "translateY(-8px)",
+      boxShadow: "0 12px 24px rgba(0, 0, 0, 0.25)",
     },
     ecoConscious: {
-      backgroundColor: "rgba(27, 53, 54, 0.85)",
+      backgroundColor: "rgba(27, 53, 54, 0.9)",
+      color: "white",
+    },
+    ecoConsciousHover: {
+      backgroundColor: "rgba(27, 53, 54, 0.95)",
       color: "white",
     },
     regularCard: {
-      backgroundColor: "rgba(255, 255, 255, 0.85)",
+      backgroundColor: "rgba(255, 255, 255, 0.9)",
       color: "#333",
+    },
+    regularCardHover: {
+      backgroundColor: "rgba(27, 53, 54, 0.9)",
+      color: "white",
     },
     cardTitle: {
       fontSize: "1.4rem",
       marginBottom: "1rem",
       color: "inherit",
+      fontWeight: "600",
     },
     cardText: {
       fontSize: "0.95rem",
-      lineHeight: 1.5,
+      lineHeight: 1.6,
+      color: "inherit",
     },
   };
 
@@ -105,9 +122,24 @@ function Cards() {
 
   const getCardStyle = (cardType, index) => {
     const baseStyle = { ...cardStyles.card };
-    const typeStyle =
-      cardType === "eco" ? cardStyles.ecoConscious : cardStyles.regularCard;
-    const hoverStyle = hoveredCard === index ? cardStyles.cardHover : {};
+    let typeStyle,
+      hoverStyle = {};
+
+    if (cardType === "eco") {
+      typeStyle =
+        hoveredCard === index
+          ? cardStyles.ecoConsciousHover
+          : cardStyles.ecoConscious;
+    } else {
+      typeStyle =
+        hoveredCard === index
+          ? cardStyles.regularCardHover
+          : cardStyles.regularCard;
+    }
+
+    if (hoveredCard === index) {
+      hoverStyle = cardStyles.cardHover;
+    }
 
     return { ...baseStyle, ...typeStyle, ...hoverStyle };
   };
@@ -127,17 +159,24 @@ function Cards() {
           ...cardStyles.heroContent,
           flexDirection: "column",
           height: "auto",
-          padding: "1.5rem",
+          padding: "2rem 1.5rem",
+          alignItems: "center",
         },
         heroTagline: {
           ...cardStyles.heroTagline,
-          textAlign: "left",
-          marginTop: "1rem",
+          textAlign: "center",
+          marginTop: "1.5rem",
+          marginRight: "0",
           maxWidth: "100%",
         },
         heroTitle: {
           ...cardStyles.heroTitle,
-          fontSize: "1.8rem",
+          fontSize: "2rem",
+        },
+        backgroundImage: {
+          ...cardStyles.backgroundImage,
+          width: "calc(100% - 0.5rem)",
+          marginRight: "0.5rem",
         },
       };
     } else if (width <= 768) {
@@ -151,16 +190,19 @@ function Cards() {
           ...cardStyles.heroContent,
           flexDirection: "column",
           height: "auto",
+          padding: "2.5rem 2rem",
+          alignItems: "center",
         },
         heroTagline: {
           ...cardStyles.heroTagline,
-          textAlign: "left",
-          marginTop: "1rem",
+          textAlign: "center",
+          marginTop: "1.5rem",
+          marginRight: "0",
           maxWidth: "100%",
         },
         heroTitle: {
           ...cardStyles.heroTitle,
-          fontSize: "2rem",
+          fontSize: "2.5rem",
         },
       };
     } else if (width <= 1024) {
@@ -168,6 +210,10 @@ function Cards() {
         infoCards: {
           ...cardStyles.infoCards,
           gridTemplateColumns: "repeat(2, 1fr)",
+        },
+        heroContent: {
+          ...cardStyles.heroContent,
+          padding: "3rem 2rem",
         },
       };
     } else if (width <= 1200) {
@@ -201,20 +247,16 @@ function Cards() {
     <div style={cardStyles.heroSection}>
       <img
         src="/sustainableImage.png"
-        style={cardStyles.backgroundImage}
+        style={responsiveStyles.backgroundImage || cardStyles.backgroundImage}
         alt="Sustainable Hygiene Background"
       />
       <div style={cardStyles.overlay}></div>
 
       <div style={responsiveStyles.heroContent || cardStyles.heroContent}>
-        <div>
+        <div style={{ flex: 1 }}>
           <h1 style={responsiveStyles.heroTitle || cardStyles.heroTitle}>
-            Sustainable Hygiene
-            <br />
-            for a Better Tomorrow
+            Sustainable Hygiene for a Better Tomorrow
           </h1>
-        </div>
-        <div style={responsiveStyles.heroTagline || cardStyles.heroTagline}>
           <p style={cardStyles.taglineText}>
             Our products are environmentally friendly and Recyclable
           </p>

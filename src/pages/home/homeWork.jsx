@@ -101,39 +101,7 @@ const HomeWork = () => {
 
         {/* Right Column - Empty for now */}
         <div className="how-it-works-right">
-          <div className="empty-placeholder">
-            {/* You can add content here later */}
-            <div className="mt-5">
-              <Marquee
-                className="mt-5"
-                gradient={false}
-                style={{ overflow: "hidden" }}
-              >
-                <div className="compact-card">
-                  <img
-                    src="/workImage-1.png"
-                    alt="work image"
-                    style={{
-                      width: "100%", // Image ko card ke according fit karein
-                      height: "120px", // Image height fix karein
-                      objectFit: "cover", // Image properly fit ho
-                    }}
-                  />
-                  <div style={{ padding: "8px 0", backgroundColor:"#2B9DA6", color:"white", textAlign:"center" }}>
-                    <div
-                      className="work-product-name"
-                      style={{
-                        fontSize: "14px", // Font size chota karein
-                        marginBottom: "4px",
-                      }}
-                    >
-                      Product Name
-                    </div>
-                  </div>
-                </div>
-              </Marquee>
-            </div>
-          </div>
+          <img src='' />
         </div>
       </div>
     </div>

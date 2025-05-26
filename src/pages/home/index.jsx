@@ -24,7 +24,7 @@ const Home = () => {
       <HomeAchievement />
       <Cards />
       <HomeTestinomial />
-      <HomeDemands />
+      {/* <HomeDemands /> */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import "./about.css"
+import "./about.css";
 import AboutBanner from "./aboutBanner";
 import StatsSection from "./aboutStats";
 import AboutCare from "./aboutCare";
@@ -9,6 +9,7 @@ import AboutSection from "./aboutSection";
 import TrustedCompanies from "./aboutCompanies";
 import ProductDevelopment from "./aboutDevelopment";
 import AboutBrand from "./aboutBrands";
+import HomeAchievement from "../home/homeAchievements";
 
 const AboutUs = () => {
   return (
@@ -16,15 +17,15 @@ const AboutUs = () => {
       <div style={{ marginTop: "5rem", marginLeft: "3rem" }}>
         <div className="aboutSectionIndex">
           <AboutBanner />
-          <StatsSection />
         </div>
+        <StatsSection />
         <ProductDevelopment />
         <AboutCare />
-        <Certification />
-        <AboutSection />
+        {/* <AboutSection /> */}
         <TrustedCompanies />
-        <AboutBrand />
       </div>
+      <Certification />
+      <HomeAchievement />
     </div>
   );
 };

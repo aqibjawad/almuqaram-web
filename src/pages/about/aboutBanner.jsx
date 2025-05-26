@@ -36,7 +36,7 @@ const AboutBanner = () => {
           </Col>
         </Row>
       </div>
-      <img className="bannerImage" src="/Vector 1.png" />
+      <img className="bannerImage" src="/aboutBanner.jpg" />
     </>
   );
 };

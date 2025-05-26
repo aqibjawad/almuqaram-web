@@ -12,16 +12,16 @@ import HomeDemands from "./homeDeamds";
 
 const Home = () => {
   return (
-    <div id="demandPage" className="demands">
+    <div>
       <div style={{ marginTop: "7rem", marginLeft: "3rem" }}>
         <HomeBanner />
         <HomeBanner2 />
         <HomeCards />
         {/* <TrustedCompanies /> */}
         <HomeWork />
-        <HomeRsult />
+        {/* <HomeRsult /> */}
       </div>
-      <HomeAchievement />
+      {/* <HomeAchievement /> */}
       <Cards />
       <HomeTestinomial />
       {/* <HomeDemands /> */}

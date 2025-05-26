@@ -76,7 +76,6 @@ function Cards() {
     card: {
       padding: "1.5rem",
       borderRadius: "12px",
-      color: "#333",
       minHeight: "190px",
       display: "flex",
       flexDirection: "column",
@@ -89,20 +88,14 @@ function Cards() {
       transform: "translateY(-8px)",
       boxShadow: "0 12px 24px rgba(0, 0, 0, 0.25)",
     },
-    ecoConscious: {
-      backgroundColor: "rgba(27, 53, 54, 0.9)",
-      color: "white",
-    },
-    ecoConsciousHover: {
-      backgroundColor: "rgba(27, 53, 54, 0.95)",
-      color: "white",
-    },
-    regularCard: {
-      backgroundColor: "rgba(255, 255, 255, 0.9)",
+    // Default card style - white background
+    defaultCard: {
+      backgroundColor: "white",
       color: "#333",
     },
-    regularCardHover: {
-      backgroundColor: "rgba(27, 53, 54, 0.9)",
+    // Hover card style - #1B3434 background
+    hoveredCard: {
+      backgroundColor: "#1B3434",
       color: "white",
     },
     cardTitle: {
@@ -120,28 +113,19 @@ function Cards() {
 
   const [hoveredCard, setHoveredCard] = React.useState(null);
 
-  const getCardStyle = (cardType, index) => {
+  const getCardStyle = (index) => {
     const baseStyle = { ...cardStyles.card };
-    let typeStyle,
-      hoverStyle = {};
+    let colorStyle, hoverStyle = {};
 
-    if (cardType === "eco") {
-      typeStyle =
-        hoveredCard === index
-          ? cardStyles.ecoConsciousHover
-          : cardStyles.ecoConscious;
-    } else {
-      typeStyle =
-        hoveredCard === index
-          ? cardStyles.regularCardHover
-          : cardStyles.regularCard;
-    }
-
+    // Apply hover color or default color
     if (hoveredCard === index) {
+      colorStyle = cardStyles.hoveredCard;
       hoverStyle = cardStyles.cardHover;
+    } else {
+      colorStyle = cardStyles.defaultCard;
     }
 
-    return { ...baseStyle, ...typeStyle, ...hoverStyle };
+    return { ...baseStyle, ...colorStyle, ...hoverStyle };
   };
 
   const getResponsiveStyles = () => {
@@ -264,9 +248,9 @@ function Cards() {
       </div>
 
       <div style={responsiveStyles.infoCards || cardStyles.infoCards}>
-        {/* Eco-Conscious Card */}
+        {/* Eco-Conscious Manufacturing Card */}
         <div
-          style={getCardStyle("eco", 0)}
+          style={getCardStyle(0)}
           onMouseEnter={() => setHoveredCard(0)}
           onMouseLeave={() => setHoveredCard(null)}
         >
@@ -280,7 +264,7 @@ function Cards() {
 
         {/* Employee Wellbeing Card */}
         <div
-          style={getCardStyle("regular", 1)}
+          style={getCardStyle(1)}
           onMouseEnter={() => setHoveredCard(1)}
           onMouseLeave={() => setHoveredCard(null)}
         >
@@ -294,7 +278,7 @@ function Cards() {
 
         {/* Responsible Governance Card */}
         <div
-          style={getCardStyle("regular", 2)}
+          style={getCardStyle(2)}
           onMouseEnter={() => setHoveredCard(2)}
           onMouseLeave={() => setHoveredCard(null)}
         >
@@ -310,7 +294,7 @@ function Cards() {
 
         {/* Ethical & Green Supply Chain Card */}
         <div
-          style={getCardStyle("regular", 3)}
+          style={getCardStyle(3)}
           onMouseEnter={() => setHoveredCard(3)}
           onMouseLeave={() => setHoveredCard(null)}
         >

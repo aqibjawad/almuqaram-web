@@ -1,18 +1,96 @@
-import React from 'react';
-import { Check, Leaf, Sparkles, ArrowRight, Star } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  Check,
+  Leaf,
+  Sparkles,
+  ArrowRight,
+  Star,
+  Heart,
+  Droplets,
+} from "lucide-react";
 
 const EnhancedCareSection = () => {
+  const [activeBrand, setActiveBrand] = useState("petals");
+
+  const brandData = {
+    petals: {
+      name: "Petals",
+      color: "#ec4899",
+      bgGradient:
+        "linear-gradient(135deg, #f8fafc 0%, #fce7f3 50%, #ecfdf5 100%)",
+      textGradient: "linear-gradient(45deg, #ec4899, #f43f5e, #ec4899)",
+      description:
+        "Premium comfort meets sustainable excellence. Our Petals brand delivers the softest touch while maintaining our commitment to environmental responsibility.",
+      features: [
+        {
+          icon: Heart,
+          title: "Ultra-soft comfort",
+          desc: "Luxurious feel for everyday use",
+        },
+        {
+          icon: Leaf,
+          title: "FSC-certified materials",
+          desc: "Sustainably sourced virgin pulp",
+        },
+      ],
+    },
+    softcare: {
+      name: "SoftCare",
+      color: "#a855f7",
+      bgGradient:
+        "linear-gradient(135deg, #f8fafc 0%, #f3e8ff 50%, #ecfdf5 100%)",
+      textGradient: "linear-gradient(45deg, #a855f7, #8b5cf6, #a855f7)",
+      description:
+        "Advanced care technology designed for sensitive skin. SoftCare products provide gentle protection while maintaining superior absorbency and comfort.",
+      features: [
+        {
+          icon: Check,
+          title: "Dermatologically tested",
+          desc: "Safe for sensitive skin types",
+        },
+        {
+          icon: Sparkles,
+          title: "Premium quality fibers",
+          desc: "Enhanced softness and durability",
+        },
+      ],
+    },
+    fresh: {
+      name: "Fresh",
+      color: "#22c55e",
+      bgGradient:
+        "linear-gradient(135deg, #f8fafc 0%, #f0fdf4 50%, #ecfffe 100%)",
+      textGradient: "linear-gradient(45deg, #22c55e, #10b981, #22c55e)",
+      description:
+        "Refreshing cleanliness with natural freshness. Our Fresh line combines effective cleaning power with eco-friendly ingredients for a healthier home.",
+      features: [
+        {
+          icon: Droplets,
+          title: "Natural freshness",
+          desc: "Long-lasting clean feeling",
+        },
+        {
+          icon: Leaf,
+          title: "Eco-friendly formula",
+          desc: "Biodegradable and sustainable",
+        },
+      ],
+    },
+  };
+
+  const currentBrand = brandData[activeBrand];
+
   return (
     <>
       <style>{`
         .main-container {
           min-height: 100vh;
-          background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #ecfdf5 100%);
+          background: ${currentBrand.bgGradient};
           position: relative;
           overflow: hidden;
           margin-top: 2rem;
           border-radius: 20px;
-          margin-right: 3rem
+          transition: background 0.6s ease;
         }
 
         .bg-elements {
@@ -28,12 +106,13 @@ const EnhancedCareSection = () => {
           left: 2.5rem;
           width: 16rem;
           height: 16rem;
-          background: linear-gradient(45deg, #a7f3d0, #5eead4);
+          background: ${currentBrand.color}40;
           border-radius: 50%;
           mix-blend-mode: multiply;
           filter: blur(40px);
           opacity: 0.7;
           animation: pulse 2s infinite;
+          transition: background 0.6s ease;
         }
 
         .bg-blob-2 {
@@ -42,13 +121,14 @@ const EnhancedCareSection = () => {
           right: 5rem;
           width: 20rem;
           height: 20rem;
-          background: linear-gradient(45deg, #fecaca, #fda4af);
+          background: ${currentBrand.color}30;
           border-radius: 50%;
           mix-blend-mode: multiply;
           filter: blur(40px);
           opacity: 0.6;
           animation: pulse 2s infinite;
           animation-delay: 2s;
+          transition: background 0.6s ease;
         }
 
         .bg-blob-3 {
@@ -57,13 +137,14 @@ const EnhancedCareSection = () => {
           left: 33.333333%;
           width: 18rem;
           height: 18rem;
-          background: linear-gradient(45deg, #bfdbfe, #67e8f9);
+          background: ${currentBrand.color}20;
           border-radius: 50%;
           mix-blend-mode: multiply;
           filter: blur(40px);
           opacity: 0.5;
           animation: pulse 2s infinite;
           animation-delay: 4s;
+          transition: background 0.6s ease;
         }
 
         .floating-particles {
@@ -77,10 +158,11 @@ const EnhancedCareSection = () => {
           position: absolute;
           width: 0.5rem;
           height: 0.5rem;
-          background: #6ee7b7;
+          background: ${currentBrand.color};
           border-radius: 50%;
           opacity: 0.4;
           animation: float 6s ease-in-out infinite;
+          transition: background 0.6s ease;
         }
 
         .content-wrapper {
@@ -88,46 +170,45 @@ const EnhancedCareSection = () => {
           z-index: 10;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 5rem 1.5rem;
+          padding: 3rem 1.5rem;
         }
 
-        .grid-container {
+        .main-content {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 4rem;
-          align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-          .grid-container {
-            grid-template-columns: 1fr 1fr;
-          }
+          gap: 3rem;
+          margin-bottom: 4rem;
         }
 
         .left-content {
           display: flex;
           flex-direction: column;
           gap: 2rem;
+          text-align: center;
         }
 
         .header-section {
           display: flex;
           flex-direction: column;
           gap: 1rem;
+          align-items: center;
         }
 
         .badge {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
-          background: #dcfce7;
-          color: #166534;
+          background: rgba(255, 255, 255, 0.8);
+          color: ${currentBrand.color};
           padding: 0.5rem 1rem;
           border-radius: 9999px;
           font-size: 0.875rem;
           font-weight: 500;
           width: fit-content;
           animation: fade-in-up 0.8s ease-out forwards;
+          backdrop-filter: blur(8px);
+          border: 1px solid ${currentBrand.color}30;
+          transition: all 0.6s ease;
         }
 
         .main-heading {
@@ -138,17 +219,18 @@ const EnhancedCareSection = () => {
           animation-delay: 0.2s;
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 768px) {
           .main-heading {
-            font-size: 3.75rem;
+            font-size: 4rem;
           }
         }
 
         .gradient-text {
-          background: linear-gradient(45deg, #059669, #0d9488, #0891b2);
+          background: ${currentBrand.textGradient};
           background-clip: text;
           -webkit-background-clip: text;
           color: transparent;
+          transition: all 0.6s ease;
         }
 
         .description {
@@ -157,6 +239,8 @@ const EnhancedCareSection = () => {
           line-height: 1.6;
           animation: fade-in-up 0.8s ease-out forwards;
           animation-delay: 0.4s;
+          max-width: 600px;
+          margin: 0 auto;
         }
 
         .description-bold {
@@ -166,33 +250,43 @@ const EnhancedCareSection = () => {
 
         .description-highlight {
           font-weight: 600;
-          color: #047857;
+          color: ${currentBrand.color};
+          transition: color 0.6s ease;
         }
 
         .features-container {
-          display: flex;
-          flex-direction: column;
+          display: grid;
+          grid-template-columns: 1fr;
           gap: 1rem;
           animation: fade-in-up 0.8s ease-out forwards;
           animation-delay: 0.6s;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+          .features-container {
+            grid-template-columns: 1fr 1fr;
+          }
         }
 
         .feature-card {
           display: flex;
           align-items: center;
           gap: 1rem;
-          padding: 1rem;
-          background: rgba(255, 255, 255, 0.7);
+          padding: 1.5rem;
+          background: rgba(255, 255, 255, 0.8);
           backdrop-filter: blur(8px);
           border-radius: 1rem;
           border: 1px solid rgba(255, 255, 255, 0.2);
           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
           transition: all 0.3s ease;
+          text-align: left;
         }
 
         .feature-card:hover {
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-          transform: scale(1.05);
+          transform: translateY(-5px);
         }
 
         .feature-icon {
@@ -203,19 +297,12 @@ const EnhancedCareSection = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: transform 0.3s ease;
+          transition: all 0.3s ease;
+          background: ${currentBrand.textGradient};
         }
 
         .feature-card:hover .feature-icon {
-          transform: rotate(12deg);
-        }
-
-        .feature-icon-1 {
-          background: linear-gradient(45deg, #10b981, #14b8a6);
-        }
-
-        .feature-icon-2 {
-          background: linear-gradient(45deg, #22c55e, #10b981);
+          transform: rotate(12deg) scale(1.1);
         }
 
         .feature-icon svg {
@@ -228,6 +315,7 @@ const EnhancedCareSection = () => {
           font-weight: 600;
           color: #1f2937;
           font-size: 1.125rem;
+          margin-bottom: 0.25rem;
         }
 
         .feature-content p {
@@ -238,11 +326,13 @@ const EnhancedCareSection = () => {
         .cta-container {
           animation: fade-in-up 0.8s ease-out forwards;
           animation-delay: 0.8s;
+          display: flex;
+          justify-content: center;
         }
 
         .cta-button {
           position: relative;
-          background: linear-gradient(45deg, #059669, #14b8a6);
+          background: ${currentBrand.textGradient};
           color: white;
           padding: 1rem 2rem;
           border-radius: 1rem;
@@ -264,25 +354,6 @@ const EnhancedCareSection = () => {
           transform: scale(1.05) translateY(-4px);
         }
 
-        .cta-button-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(45deg, #047857, #0f766e);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .cta-button:hover .cta-button-overlay {
-          opacity: 1;
-        }
-
-        .cta-button-content {
-          position: relative;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-
         .cta-button:hover .arrow-icon {
           transform: translateX(4px);
         }
@@ -291,57 +362,95 @@ const EnhancedCareSection = () => {
           transition: transform 0.3s ease;
         }
 
-        .cta-button-glow {
-          position: absolute;
-          inset: 0;
-          z-index: -1;
-          background: linear-gradient(45deg, #059669, #14b8a6);
-          filter: blur(16px);
-          opacity: 0.5;
-          transition: opacity 0.3s ease;
-        }
-
-        .cta-button:hover .cta-button-glow {
-          opacity: 0.75;
-        }
-
-        .right-content {
-          position: relative;
-          display: flex;
-          flex-direction: column;
+        /* Brand Selection Section */
+        .brand-selection {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 2rem;
-          justify-content: center;
-          align-items: center;
-          animation: fade-in-right 0.8s ease-out forwards;
+          animation: fade-in-up 0.8s ease-out forwards;
           animation-delay: 1s;
         }
 
-        .logo-glow {
+        .brand-card {
+          position: relative;
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(16px);
+          padding: 2rem;
+          border-radius: 1.5rem;
+          box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.15);
+          border: 2px solid transparent;
+          transition: all 0.4s ease;
+          cursor: pointer;
+          text-align: center;
+          overflow: hidden;
+        }
+
+        .brand-card:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .brand-card.active {
+          border-color: ${currentBrand.color};
+          box-shadow: 0 25px 50px -12px ${currentBrand.color}40;
+          transform: translateY(-5px);
+        }
+
+        .brand-card-petals {
+          background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(244, 63, 94, 0.1));
+        }
+
+        .brand-card-softcare {
+          background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(139, 92, 246, 0.1));
+        }
+
+        .brand-card-fresh {
+          background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
+        }
+
+        .brand-text {
+          font-size: 2.5rem;
+          font-weight: 700;
+          font-family: cursive;
+          transition: all 0.3s ease;
+          margin-bottom: 1rem;
+        }
+
+        .brand-text:hover {
+          transform: scale(1.1);
+        }
+
+        .brand-text-petals {
+          background: linear-gradient(45deg, #ec4899, #f43f5e, #ec4899);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+
+        .brand-text-softcare {
+          background: linear-gradient(45deg, #a855f7, #8b5cf6, #a855f7);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+
+        .brand-text-fresh {
+          background: linear-gradient(45deg, #22c55e, #10b981, #22c55e);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+
+        .brand-description {
+          font-size: 0.875rem;
+          color: #6b7280;
+          line-height: 1.5;
+        }
+
+        .decorative-elements {
           position: absolute;
           inset: 0;
-          background: linear-gradient(45deg, #fda4af, #fb7185);
-          border-radius: 50%;
-          filter: blur(48px);
-          opacity: 0.3;
-          animation: pulse 2s infinite;
-          transform: scale(1.5);
-        }
-
-        .logo-container {
-          position: relative;
-          background: rgba(255, 255, 255, 0.8);
-          backdrop-filter: blur(16px);
-          padding: 2.5rem;
-          border-radius: 1.5rem;
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          transition: transform 0.5s ease;
-          width: 100%;
-          max-width: 350px;
-        }
-
-        .logo-container:hover {
-          transform: scale(1.05);
+          pointer-events: none;
         }
 
         .decorative-dot-1 {
@@ -350,7 +459,6 @@ const EnhancedCareSection = () => {
           left: -0.5rem;
           width: 1.5rem;
           height: 1.5rem;
-          background: linear-gradient(45deg, #ec4899, #f43f5e);
           border-radius: 50%;
           animation: bounce 1s infinite;
         }
@@ -361,225 +469,58 @@ const EnhancedCareSection = () => {
           right: -0.5rem;
           width: 1rem;
           height: 1rem;
-          background: linear-gradient(45deg, #10b981, #14b8a6);
           border-radius: 50%;
           animation: bounce 1s infinite;
           animation-delay: 1s;
         }
 
-        .petals-text {
-          font-size: 3.5rem;
-          font-weight: 700;
-          background: linear-gradient(45deg, #ec4899, #f43f5e, #ec4899);
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
-          font-family: cursive;
-          transition: transform 0.3s ease;
-          text-align: center;
-        }
-
-        .petals-text:hover {
-          transform: scale(1.1);
+        .sparkle-1, .sparkle-2 {
+          position: absolute;
+          animation: pulse 2s infinite;
         }
 
         .sparkle-1 {
-          position: absolute;
           top: 1rem;
           right: 1rem;
-          color: #f9a8d4;
-          animation: pulse 2s infinite;
         }
 
         .sparkle-2 {
-          position: absolute;
           bottom: 1rem;
           left: 1rem;
-          color: #fda4af;
-          animation: pulse 2s infinite;
           animation-delay: 0.5s;
         }
 
-        .floating-card {
-          position: relative;
-          bottom: auto;
-          right: auto;
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(8px);
-          padding: 1.5rem;
-          border-radius: 1rem;
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          text-align: center;
-          animation: float 6s ease-in-out infinite;
-          animation-delay: 2s;
-          width: 100%;
-          max-width: 350px;
+        /* Petals decorations */
+        .brand-card-petals .decorative-dot-1 {
+          background: linear-gradient(45deg, #ec4899, #f43f5e);
+        }
+        .brand-card-petals .decorative-dot-2 {
+          background: linear-gradient(45deg, #f43f5e, #ec4899);
+        }
+        .brand-card-petals .sparkle-1, .brand-card-petals .sparkle-2 {
+          color: #ec4899;
         }
 
-        .brand-card {
-          position: relative;
-          background: rgba(255, 255, 255, 0.8);
-          backdrop-filter: blur(16px);
-          padding: 2rem;
-          border-radius: 1.5rem;
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          transition: transform 0.5s ease;
-          width: 100%;
-          max-width: 350px;
-          text-align: center;
-        }
-
-        .brand-card:hover {
-          transform: scale(1.05);
-        }
-
-        .brand-card-1 {
-          background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(139, 92, 246, 0.1));
-        }
-
-        .brand-card-2 {
-          background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
-        }
-
-        .brand-text {
-          font-size: 2.5rem;
-          font-weight: 700;
-          font-family: cursive;
-          transition: transform 0.3s ease;
-        }
-
-        .brand-text:hover {
-          transform: scale(1.1);
-        }
-
-        .brand-text-1 {
-          background: linear-gradient(45deg, #a855f7, #8b5cf6, #a855f7);
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
-        }
-
-        .brand-text-2 {
-          background: linear-gradient(45deg, #22c55e, #10b981, #22c55e);
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
-        }
-
-        .brand-decorative-1 {
-          position: absolute;
-          top: -0.5rem;
-          left: -0.5rem;
-          width: 1.5rem;
-          height: 1.5rem;
+        /* SoftCare decorations */
+        .brand-card-softcare .decorative-dot-1 {
           background: linear-gradient(45deg, #a855f7, #8b5cf6);
-          border-radius: 50%;
-          animation: bounce 1s infinite;
         }
-
-        .brand-decorative-2 {
-          position: absolute;
-          bottom: -0.5rem;
-          right: -0.5rem;
-          width: 1rem;
-          height: 1rem;
-          background: linear-gradient(45deg, #a855f7, #8b5cf6);
-          border-radius: 50%;
-          animation: bounce 1s infinite;
-          animation-delay: 1s;
+        .brand-card-softcare .decorative-dot-2 {
+          background: linear-gradient(45deg, #8b5cf6, #a855f7);
         }
-
-        .brand-decorative-3 {
-          position: absolute;
-          top: -0.5rem;
-          left: -0.5rem;
-          width: 1.5rem;
-          height: 1.5rem;
-          background: linear-gradient(45deg, #22c55e, #10b981);
-          border-radius: 50%;
-          animation: bounce 1s infinite;
-        }
-
-        .brand-decorative-4 {
-          position: absolute;
-          bottom: -0.5rem;
-          right: -0.5rem;
-          width: 1rem;
-          height: 1rem;
-          background: linear-gradient(45deg, #22c55e, #10b981);
-          border-radius: 50%;
-          animation: bounce 1s infinite;
-          animation-delay: 1s;
-        }
-
-        .brand-sparkle-1 {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
+        .brand-card-softcare .sparkle-1, .brand-card-softcare .sparkle-2 {
           color: #a855f7;
-          animation: pulse 2s infinite;
         }
 
-        .brand-sparkle-2 {
-          position: absolute;
-          bottom: 1rem;
-          left: 1rem;
-          color: #8b5cf6;
-          animation: pulse 2s infinite;
-          animation-delay: 0.5s;
+        /* Fresh decorations */
+        .brand-card-fresh .decorative-dot-1 {
+          background: linear-gradient(45deg, #22c55e, #10b981);
         }
-
-        .brand-sparkle-3 {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
+        .brand-card-fresh .decorative-dot-2 {
+          background: linear-gradient(45deg, #10b981, #22c55e);
+        }
+        .brand-card-fresh .sparkle-1, .brand-card-fresh .sparkle-2 {
           color: #22c55e;
-          animation: pulse 2s infinite;
-        }
-
-        .brand-sparkle-4 {
-          position: absolute;
-          bottom: 1rem;
-          left: 1rem;
-          color: #10b981;
-          animation: pulse 2s infinite;
-          animation-delay: 0.5s;
-        }
-
-        .floating-card h4 {
-          font-weight: 700;
-          color: #1f2937;
-          margin-bottom: 0.5rem;
-        }
-
-        .floating-card p {
-          font-size: 0.875rem;
-          color: #6b7280;
-          margin-bottom: 1rem;
-        }
-
-        .floating-card-button {
-          width: 3rem;
-          height: 3rem;
-          background: linear-gradient(45deg, #374151, #1f2937);
-          color: white;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: transform 0.3s ease;
-          border: none;
-          cursor: pointer;
-        }
-
-        .floating-card-button:hover {
-          transform: scale(1.1);
-        }
-
-        .floating-card-button:hover .arrow-icon {
-          transform: translateX(4px);
         }
 
         /* Animations */
@@ -594,23 +535,12 @@ const EnhancedCareSection = () => {
           }
         }
 
-        @keyframes fade-in-right {
-          from {
-            opacity: 0;
-            transform: translateX(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
         @keyframes float {
           0%, 100% {
-            transform: translateY(0px) rotate(0deg);
+            transform: translateY(0px);
           }
           50% {
-            transform: translateY(-20px) rotate(180deg);
+            transform: translateY(-20px);
           }
         }
 
@@ -651,149 +581,94 @@ const EnhancedCareSection = () => {
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 8}s`,
-                animationDuration: `${6 + Math.random() * 4}s`
+                animationDuration: `${6 + Math.random() * 4}s`,
               }}
             ></div>
           ))}
         </div>
 
         <div className="content-wrapper">
-          <div className="grid-container">
-            {/* Left Content */}
+          {/* Main Content Section */}
+          <div className="main-content">
             <div className="left-content">
-              {/* Main Heading with Gradient */}
+              {/* Main Heading with Dynamic Content */}
               <div className="header-section">
                 <div className="badge">
                   <Leaf className="w-4 h-4" />
                   <span>Sustainable Excellence</span>
                 </div>
-                
+
                 <h1 className="main-heading">
-                  We care for the{' '}
-                  <span className="gradient-text">
-                    world
-                  </span>{' '}
+                  We care for the <span className="gradient-text">world</span>{" "}
                   we serve
                 </h1>
               </div>
 
-              {/* Description */}
+              {/* Dynamic Description */}
               <p className="description">
-                <span className="description-bold">SOFTCARE™</span> products are{' '}
-                <span className="description-highlight">FSC® certified</span>, ensuring
-                responsible sourcing and environmental integrity from raw material to final packaging.
+                <span className="description-bold">
+                  {currentBrand.name.toUpperCase()}™
+                </span>{" "}
+                products are{" "}
+                <span className="description-highlight">FSC® certified</span>,{" "}
+                {currentBrand.description}
               </p>
 
-              {/* Features with Enhanced Design */}
+              {/* Dynamic Features */}
               <div className="features-container">
-                <div className="feature-card">
-                  <div className="feature-icon feature-icon-1">
-                    <Check />
+                {currentBrand.features.map((feature, index) => (
+                  <div key={index} className="feature-card">
+                    <div className="feature-icon">
+                      <feature.icon />
+                    </div>
+                    <div className="feature-content">
+                      <h3>{feature.title}</h3>
+                      <p>{feature.desc}</p>
+                    </div>
                   </div>
-                  <div className="feature-content">
-                    <h3>Soft and skin-friendly</h3>
-                    <p>Gentle care for sensitive skin</p>
-                  </div>
-                </div>
-
-                <div className="feature-card">
-                  <div className="feature-icon feature-icon-2">
-                    <Leaf />
-                  </div>
-                  <div className="feature-content">
-                    <h3>Made from FSC-certified virgin pulp</h3>      
-                    <p>Sustainably sourced materials</p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               {/* Call to Action Button */}
               <div className="cta-container">
                 <button className="cta-button">
-                  <div className="cta-button-overlay"></div>
-                  <div className="cta-button-content">
-                    <span>See Our Practices</span>
-                    <ArrowRight className="arrow-icon" />
-                  </div>
-                  <div className="cta-button-glow"></div>
-                </button>
-              </div>
-            </div>
-
-            {/* Right Side - Enhanced Brand Cards */}
-            <div className="right-content">
-              {/* Glow Effect */}
-              <div className="logo-glow"></div>
-              
-              {/* Main Petals Logo Container */}
-              <div className="logo-container">
-                {/* Decorative Elements */}
-                <div className="decorative-dot-1"></div>
-                <div className="decorative-dot-2"></div>
-                
-                {/* Petals Text - Enhanced */}
-                <div className="petals-text">
-                  Petals
-                </div>
-                
-                {/* Sparkle Effects */}
-                <div className="sparkle-1">
-                  <Sparkles />
-                </div>
-                <div className="sparkle-2">
-                  <Star />
-                </div>
-              </div>
-
-              {/* Second Brand Card */}
-              <div className="brand-card brand-card-1">
-                {/* Decorative Elements */}
-                <div className="brand-decorative-1"></div>
-                <div className="brand-decorative-2"></div>
-                
-                {/* Brand Text */}
-                <div className="brand-text brand-text-1">
-                  SoftCare
-                </div>
-                
-                {/* Sparkle Effects */}
-                <div className="brand-sparkle-1">
-                  <Sparkles />
-                </div>
-                <div className="brand-sparkle-2">
-                  <Star />
-                </div>
-              </div>
-
-              {/* Third Brand Card */}
-              <div className="brand-card brand-card-2">
-                {/* Decorative Elements */}
-                <div className="brand-decorative-3"></div>
-                <div className="brand-decorative-4"></div>
-                
-                {/* Brand Text */}
-                <div className="brand-text brand-text-2">
-                  Fresh
-                </div>
-                
-                {/* Sparkle Effects */}
-                <div className="brand-sparkle-3">
-                  <Sparkles />
-                </div>
-                <div className="brand-sparkle-4">
-                  <Star />
-                </div>
-              </div>
-
-              {/* Floating Action Card */}
-              <div className="floating-card">
-                <h4>Explore Our Brands</h4>
-                <p>Shop SOFTCARE Essentials</p>
-                <button className="floating-card-button">
+                  <span>Explore {currentBrand.name}</span>
                   <ArrowRight className="arrow-icon" />
                 </button>
               </div>
             </div>
+          </div>
+
+          {/* Brand Selection Cards */}
+          <div className="brand-selection">
+            {Object.entries(brandData).map(([key, brand]) => (
+              <div
+                key={key}
+                className={`brand-card brand-card-${key} ${
+                  activeBrand === key ? "active" : ""
+                }`}
+                onClick={() => setActiveBrand(key)}
+              >
+                <div className="decorative-elements">
+                  <div className="decorative-dot-1"></div>
+                  <div className="decorative-dot-2"></div>
+                  <div className="sparkle-1">
+                    <Sparkles />
+                  </div>
+                  <div className="sparkle-2">
+                    <Star />
+                  </div>
+                </div>
+
+                <div className={`brand-text brand-text-${key}`}>
+                  {brand.name}
+                </div>
+
+                <p className="brand-description">
+                  Click to explore our {brand.name.toLowerCase()} collection
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

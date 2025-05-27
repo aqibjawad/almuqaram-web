@@ -10,7 +10,7 @@ const HomeCards = () => {
   const limitedProducts = productData.slice(0, 8);
   
   return (
-    <div id="products">
+    <div id="products" className="home-products">
       <div className="product-head mt-5">Products</div>
       <div className="product-descrp mt-3">
         AL MUQARRAM Hygienic Products Industry LLC is one of the fastest-

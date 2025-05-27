@@ -25,7 +25,7 @@ const AboutUs = () => {
         <TrustedCompanies />
       </div>
       <Certification />
-      <HomeAchievement />
+      {/* <HomeAchievement /> */}
     </div>
   );
 };

@@ -15,12 +15,13 @@ const EnhancedCareSection = () => {
   const brandData = {
     petals: {
       name: "Petals",
-      color: "#ec4899",
+      color: "#2BBBBE",
+      imageUrl: "/Achieve2.png", // Tissue/paper product image
       bgGradient:
-        "linear-gradient(135deg, #f8fafc 0%, #fce7f3 50%, #ecfdf5 100%)",
-      textGradient: "linear-gradient(45deg, #ec4899, #f43f5e, #ec4899)",
+        "linear-gradient(135deg, #f8fafc 0%, #e6fffa 50%, #f0fdfa 100%)",
+      textGradient: "linear-gradient(45deg, #2BBBBE, #14b8a6, #2BBBBE)",
       description:
-        "Premium comfort meets sustainable excellence. Our Petals brand delivers the softest touch while maintaining our commitment to environmental responsibility.",
+        "Premium comfort meets sustainable excellence. Our brand delivers the softest touch while maintaining our commitment to environmental responsibility.",
       features: [
         {
           icon: Heart,
@@ -36,12 +37,13 @@ const EnhancedCareSection = () => {
     },
     softcare: {
       name: "SoftCare",
-      color: "#a855f7",
+      color: "#4f46e5",
+      imageUrl: "/Achieve1.png", // Healthcare/care product image
       bgGradient:
-        "linear-gradient(135deg, #f8fafc 0%, #f3e8ff 50%, #ecfdf5 100%)",
-      textGradient: "linear-gradient(45deg, #a855f7, #8b5cf6, #a855f7)",
+        "linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f0fdfa 100%)",
+      textGradient: "linear-gradient(45deg, #4f46e5, #6366f1, #4f46e5)",
       description:
-        "Advanced care technology designed for sensitive skin. SoftCare products provide gentle protection while maintaining superior absorbency and comfort.",
+        "Advanced care technology designed for sensitive skin. Products provide gentle protection while maintaining superior absorbency and comfort.",
       features: [
         {
           icon: Check,
@@ -56,13 +58,14 @@ const EnhancedCareSection = () => {
       ],
     },
     fresh: {
-      name: "Fresh",
-      color: "#22c55e",
+      name: "Soft Care Professional",
+      color: "#059669",
+      imageUrl: "/Achieve3.png", // Fresh/cleaning product image
       bgGradient:
-        "linear-gradient(135deg, #f8fafc 0%, #f0fdf4 50%, #ecfffe 100%)",
-      textGradient: "linear-gradient(45deg, #22c55e, #10b981, #22c55e)",
+        "linear-gradient(135deg, #f8fafc 0%, #ecfdf5 50%, #f0fdfa 100%)",
+      textGradient: "linear-gradient(45deg, #059669, #10b981, #059669)",
       description:
-        "Refreshing cleanliness with natural freshness. Our Fresh line combines effective cleaning power with eco-friendly ingredients for a healthier home.",
+        "Refreshing cleanliness with natural freshness. Our line combines effective cleaning power with eco-friendly ingredients for a healthier home.",
       features: [
         {
           icon: Droplets,
@@ -89,6 +92,7 @@ const EnhancedCareSection = () => {
           position: relative;
           overflow: hidden;
           margin-top: 2rem;
+          margin-right: 3rem;
           border-radius: 20px;
           transition: background 0.6s ease;
         }
@@ -373,154 +377,180 @@ const EnhancedCareSection = () => {
 
         .brand-card {
           position: relative;
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(16px);
-          padding: 2rem;
-          border-radius: 1.5rem;
-          box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.15);
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
+          padding: 2.5rem;
+          border-radius: 2rem;
+          box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.2);
           border: 2px solid transparent;
-          transition: all 0.4s ease;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
           text-align: center;
           overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          min-height: 320px;
         }
 
         .brand-card:hover {
-          transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+          transform: translateY(-12px) scale(1.03);
+          box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.3);
         }
 
         .brand-card.active {
           border-color: ${currentBrand.color};
-          box-shadow: 0 25px 50px -12px ${currentBrand.color}40;
-          transform: translateY(-5px);
+          box-shadow: 0 35px 70px -15px ${currentBrand.color}50;
+          transform: translateY(-8px) scale(1.02);
         }
 
         .brand-card-petals {
-          background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(244, 63, 94, 0.1));
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(252, 231, 243, 0.8));
+          border: 1px solid rgba(43, 187, 190, 0.2);
         }
 
         .brand-card-softcare {
-          background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(139, 92, 246, 0.1));
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(243, 232, 255, 0.8));
+          border: 1px solid rgba(79, 70, 229, 0.2);
         }
 
         .brand-card-fresh {
-          background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(236, 253, 245, 0.8));
+          border: 1px solid rgba(5, 150, 105, 0.2);
         }
 
-        .brand-text {
-          font-size: 2.5rem;
+        .brand-image {
+          width: 140px;
+          height: 140px;
+          object-fit: contain;
+          border-radius: 1.5rem;
+          margin-bottom: 1.5rem;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+          border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .brand-card:hover .brand-image {
+          transform: scale(1.1) rotate(3deg);
+          filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+        }
+
+        .brand-name {
+          font-size: 1.8rem;
           font-weight: 700;
-          font-family: cursive;
+          margin-bottom: 0.75rem;
           transition: all 0.3s ease;
-          margin-bottom: 1rem;
         }
 
-        .brand-text:hover {
-          transform: scale(1.1);
-        }
-
-        .brand-text-petals {
-          background: linear-gradient(45deg, #ec4899, #f43f5e, #ec4899);
+        .brand-name-petals {
+          background: linear-gradient(45deg, #2BBBBE, #14b8a6, #2BBBBE);
           background-clip: text;
           -webkit-background-clip: text;
           color: transparent;
         }
 
-        .brand-text-softcare {
-          background: linear-gradient(45deg, #a855f7, #8b5cf6, #a855f7);
+        .brand-name-softcare {
+          background: linear-gradient(45deg, #4f46e5, #6366f1, #4f46e5);
           background-clip: text;
           -webkit-background-clip: text;
           color: transparent;
         }
 
-        .brand-text-fresh {
-          background: linear-gradient(45deg, #22c55e, #10b981, #22c55e);
+        .brand-name-fresh {
+          background: linear-gradient(45deg, #059669, #10b981, #059669);
           background-clip: text;
           -webkit-background-clip: text;
           color: transparent;
         }
 
         .brand-description {
-          font-size: 0.875rem;
+          font-size: 0.95rem;
           color: #6b7280;
-          line-height: 1.5;
+          line-height: 1.6;
+          font-weight: 500;
         }
 
         .decorative-elements {
           position: absolute;
           inset: 0;
           pointer-events: none;
+          opacity: 0.7;
         }
 
         .decorative-dot-1 {
           position: absolute;
-          top: -0.5rem;
-          left: -0.5rem;
-          width: 1.5rem;
-          height: 1.5rem;
+          top: 1rem;
+          left: 1rem;
+          width: 12px;
+          height: 12px;
           border-radius: 50%;
-          animation: bounce 1s infinite;
+          animation: float 3s ease-in-out infinite;
         }
 
         .decorative-dot-2 {
           position: absolute;
-          bottom: -0.5rem;
-          right: -0.5rem;
-          width: 1rem;
-          height: 1rem;
+          bottom: 1rem;
+          right: 1rem;
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
-          animation: bounce 1s infinite;
-          animation-delay: 1s;
+          animation: float 3s ease-in-out infinite;
+          animation-delay: 1.5s;
         }
 
         .sparkle-1, .sparkle-2 {
           position: absolute;
-          animation: pulse 2s infinite;
+          animation: pulse 2.5s infinite;
+          opacity: 0.6;
         }
 
         .sparkle-1 {
-          top: 1rem;
-          right: 1rem;
+          top: 1.5rem;
+          right: 1.5rem;
+          width: 16px;
+          height: 16px;
         }
 
         .sparkle-2 {
-          bottom: 1rem;
-          left: 1rem;
-          animation-delay: 0.5s;
+          bottom: 1.5rem;
+          left: 1.5rem;
+          width: 14px;
+          height: 14px;
+          animation-delay: 1.2s;
         }
 
         /* Petals decorations */
         .brand-card-petals .decorative-dot-1 {
-          background: linear-gradient(45deg, #ec4899, #f43f5e);
+          background: linear-gradient(45deg, #2BBBBE, #14b8a6);
         }
         .brand-card-petals .decorative-dot-2 {
-          background: linear-gradient(45deg, #f43f5e, #ec4899);
+          background: linear-gradient(45deg, #14b8a6, #2BBBBE);
         }
         .brand-card-petals .sparkle-1, .brand-card-petals .sparkle-2 {
-          color: #ec4899;
+          color: #2BBBBE;
         }
 
         /* SoftCare decorations */
         .brand-card-softcare .decorative-dot-1 {
-          background: linear-gradient(45deg, #a855f7, #8b5cf6);
+          background: linear-gradient(45deg, #4f46e5, #6366f1);
         }
         .brand-card-softcare .decorative-dot-2 {
-          background: linear-gradient(45deg, #8b5cf6, #a855f7);
+          background: linear-gradient(45deg, #6366f1, #4f46e5);
         }
         .brand-card-softcare .sparkle-1, .brand-card-softcare .sparkle-2 {
-          color: #a855f7;
+          color: #4f46e5;
         }
 
         /* Fresh decorations */
         .brand-card-fresh .decorative-dot-1 {
-          background: linear-gradient(45deg, #22c55e, #10b981);
+          background: linear-gradient(45deg, #059669, #10b981);
         }
         .brand-card-fresh .decorative-dot-2 {
-          background: linear-gradient(45deg, #10b981, #22c55e);
+          background: linear-gradient(45deg, #10b981, #059669);
         }
         .brand-card-fresh .sparkle-1, .brand-card-fresh .sparkle-2 {
-          color: #22c55e;
+          color: #059669;
         }
 
         /* Animations */
@@ -639,7 +669,7 @@ const EnhancedCareSection = () => {
             </div>
           </div>
 
-          {/* Brand Selection Cards */}
+          {/* Brand Selection Cards with Images */}
           <div className="brand-selection">
             {Object.entries(brandData).map(([key, brand]) => (
               <div
@@ -660,12 +690,18 @@ const EnhancedCareSection = () => {
                   </div>
                 </div>
 
-                <div className={`brand-text brand-text-${key}`}>
+                <img 
+                  src={brand.imageUrl} 
+                  alt={`${brand.name} Product`}
+                  className="brand-image"
+                />
+
+                <div className={`brand-name brand-name-${key}`}>
                   {brand.name}
                 </div>
 
                 <p className="brand-description">
-                  Click to explore our {brand.name.toLowerCase()} collection
+                  Premium quality with sustainable excellence
                 </p>
               </div>
             ))}

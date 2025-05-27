@@ -1,5 +1,5 @@
-.aboutSectionIndex{
-  background-color: #F0F0F0;
+.aboutSectionIndex {
+  background-color: #f0f0f0;
   margin-right: 3rem;
   border-radius: 20px;
   margin-top: 10rem;
@@ -20,7 +20,7 @@
   /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
 }
 
-.bannerImage{
+.bannerImage {
   height: 690px;
   width: 100%;
   padding-left: 3rem;
@@ -222,7 +222,6 @@
     font-size: 12px;
   }
 }
-
 
 /* About Product Development */
 
@@ -578,4 +577,13 @@
 
 .brand-button:hover {
   background-color: #163c36;
+}
+
+.logos-carousel {
+  background-color: #1d9fb8;
+  margin-right: 3rem;
+  padding: 20px;
+  margin-top: 3rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import "./about.css"
 
 const TrustedCompanies = () => {
   const [partner, setPartner] = useState([]);
@@ -65,15 +66,15 @@ const TrustedCompanies = () => {
   return (
     <div className="logos-carousel">
       <Container>
-        <div style={{ marginTop: "3rem" }}>
+        <div style={{ }}>
           <div
             className="text-center"
-            style={{ fontWeight: "800", fontSize: "74px", color: "#4C5A65" }}
+            style={{ fontWeight: "800", fontSize: "74px", color: "white" }}
           >
             Trusted Worldwide.
           </div>
           <div
-            style={{ color: "#4C5A65B2", fontSize: "24px", fontWeight: "400", textAlign:"center", marginTop:"1rem" }}
+            style={{ color: "white", fontSize: "24px", fontWeight: "400", textAlign:"center", marginTop:"1rem" }}
           >
             Founded in the heart of Ajman, UAE, AL MUQARRAM Hygienic Products
             Industry LLC is one of the fastest-growing converters of hygienic

@@ -5,6 +5,7 @@ import Gallery from "../pages/gallery/page";
 import AboutUs from "../pages/about";
 import Brands from "../pages/brands";
 import Certification from "../pages/certification/certification";
+import CartPage from "../pages/cart/cart";
 
 const routes = [
   {
@@ -46,6 +47,12 @@ const routes = [
   {
     path: "/certifications",
     element: <Certification />,
+    exact: "true",
+    type: "public",
+  },
+  {
+    path: "/cart-page",
+    element: <CartPage />,
     exact: "true",
     type: "public",
   },

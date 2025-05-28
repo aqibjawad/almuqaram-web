@@ -1,7 +1,7 @@
 // Product data array with one image from each product folder
 const productData = [
   {
-    image: "/out of order/83120 - Alum Container/10.jpg",
+    image: "/Product PNG Files/1740056501673.png",
     title: "83120 - Alum Container"
   },
   {

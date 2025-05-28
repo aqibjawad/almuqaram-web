@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const HomeBanner = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     // Trigger animations after component mounts
@@ -13,8 +13,8 @@ const HomeBanner = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleImageLoad = () => {
-    setImageLoaded(true);
+  const handleVideoLoad = () => {
+    setVideoLoaded(true);
   };
 
   return (
@@ -46,11 +46,14 @@ const HomeBanner = () => {
             </div>
           </div>
         </div>
-        <img
-          src="/bannerHome.jpg"
-          alt="Banner"
-          className={`home-banner-image ${imageLoaded ? "image-loaded" : ""}`}
-          onLoad={handleImageLoad}
+        <video
+          src="/forest-video.mp4"
+          className={`home-banner-video ${videoLoaded ? "video-loaded" : ""}`}
+          onLoadedData={handleVideoLoad}
+          autoPlay
+          muted
+          loop
+          playsInline
         />
       </div>
 
@@ -66,7 +69,7 @@ const HomeBanner = () => {
           height: 100%;
         }
 
-        .home-banner-image {
+        .home-banner-video {
           width: 96.5%;
           height: 100%;
           object-fit: cover;
@@ -78,7 +81,7 @@ const HomeBanner = () => {
           transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .home-banner-image.image-loaded {
+        .home-banner-video.video-loaded {
           opacity: 1;
           transform: scale(1);
         }
@@ -296,7 +299,7 @@ const HomeBanner = () => {
 
         /* Reduced motion for accessibility */
         @media (prefers-reduced-motion: reduce) {
-          .home-banner-image,
+          .home-banner-video,
           .home-banner-overlay,
           .home-banner-welcome,
           .home-banner-title,

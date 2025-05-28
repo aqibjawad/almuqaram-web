@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import { Button, Container, Row, Col } from "react-bootstrap";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function HomeTestimonial() {
   const [startIndex, setStartIndex] = useState(0);
@@ -13,7 +13,8 @@ function HomeTestimonial() {
       personTitle: "Manager",
       personImage: "/person.jpg",
       quote: "Al Muqarram is a very professional company",
-      description: "That we really enjoy working with. We like the technical expertise and your commitment to quality, on-time delivery and customer service.",
+      description:
+        "That we really enjoy working with. We like the technical expertise and your commitment to quality, on-time delivery and customer service.",
       buttonText: "Read customer story",
     },
     {
@@ -23,7 +24,8 @@ function HomeTestimonial() {
       personTitle: "CEO",
       personImage: "/person.jpg",
       quote: "They always deliver high-quality results",
-      description: "Your team's dedication to excellence has truly helped us meet our deadlines without compromising on quality.",
+      description:
+        "Your team's dedication to excellence has truly helped us meet our deadlines without compromising on quality.",
       buttonText: "Read customer story",
     },
     {
@@ -33,7 +35,8 @@ function HomeTestimonial() {
       personTitle: "Product Head",
       personImage: "/person.jpg",
       quote: "Great service and support",
-      description: "I appreciate the responsive support and detailed documentation you provide. It makes our job much easier.",
+      description:
+        "I appreciate the responsive support and detailed documentation you provide. It makes our job much easier.",
       buttonText: "Read customer story",
     },
     {
@@ -43,7 +46,8 @@ function HomeTestimonial() {
       personTitle: "Operations Director",
       personImage: "/person.jpg",
       quote: "Truly reliable partners",
-      description: "Their efficiency and clear communication helped us overcome logistical challenges with ease.",
+      description:
+        "Their efficiency and clear communication helped us overcome logistical challenges with ease.",
       buttonText: "Read customer story",
     },
     {
@@ -53,9 +57,10 @@ function HomeTestimonial() {
       personTitle: "Operations Director",
       personImage: "/person.jpg",
       quote: "Truly reliable hundreds",
-      description: "Their efficiency and clear communication helped us overcome logistical challenges with ease.",
+      description:
+        "Their efficiency and clear communication helped us overcome logistical challenges with ease.",
       buttonText: "Read customer story",
-    }
+    },
   ];
 
   // Calculate next and previous indices with circular navigation
@@ -94,7 +99,8 @@ function HomeTestimonial() {
       margin-bottom: 20px;
     }
     .testimonial-overlay-card {
-      background-color: #6ACFC7;
+      background-color: #3B7174;
+      color: white;
       position: absolute;
       top: 15px;
       right: 10px;
@@ -148,6 +154,7 @@ function HomeTestimonial() {
       font-weight: 400;
     }
     .testimonial-content {
+      color: white;
       padding: 20px;
       height: 100%;
       display: flex;
@@ -155,12 +162,15 @@ function HomeTestimonial() {
       justify-content: flex-end;
     }
     .testimonial-quote {
+      color: white;
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 10px;
       color: #2A5552;
     }
     .testimonial-description {
+    color: white;
+
       font-size: 14px;
       line-height: 1.4;
       color: rgba(42, 85, 82, 0.9);
@@ -208,18 +218,34 @@ function HomeTestimonial() {
       <Container fluid className="testimonials-container py-5">
         <Row className="align-items-center mb-4">
           <Col xs={12} lg={8}>
-            <h1 style={{ fontSize: '42px', fontWeight: '600', marginBottom: '10px' }}>
+            <h1
+              style={{
+                fontSize: "42px",
+                fontWeight: "600",
+                marginBottom: "10px",
+              }}
+            >
               Testimonials
             </h1>
-            <p style={{ fontSize: '16px', opacity: '0.8', maxWidth: '350px' }}>
+            <p style={{ fontSize: "16px", opacity: "0.8", maxWidth: "350px" }}>
               See how others transformed their brands with on-demand fulfillment
             </p>
           </Col>
-          <Col xs={12} lg={4} className="d-flex justify-content-lg-end justify-content-start gap-2 mt-4 mt-lg-0">
-            <Button className="nav-button d-flex align-items-center justify-content-center" onClick={prevSlide}>
+          <Col
+            xs={12}
+            lg={4}
+            className="d-flex justify-content-lg-end justify-content-start gap-2 mt-4 mt-lg-0"
+          >
+            <Button
+              className="nav-button d-flex align-items-center justify-content-center"
+              onClick={prevSlide}
+            >
               <ChevronLeft size={24} />
             </Button>
-            <Button className="nav-button d-flex align-items-center justify-content-center" onClick={nextSlide}>
+            <Button
+              className="nav-button d-flex align-items-center justify-content-center"
+              onClick={nextSlide}
+            >
               <ChevronRight size={24} />
             </Button>
           </Col>
@@ -228,27 +254,42 @@ function HomeTestimonial() {
         {/* Multiple Testimonials Display */}
         <Row className="carousel-row">
           {visibleTestimonials.map((testimonial) => (
-            <Col lg={4} md={6} xs={12} key={testimonial.id} className="testimonial-item">
+            <Col
+              lg={4}
+              md={6}
+              xs={12}
+              key={testimonial.id}
+              className="testimonial-item"
+            >
               <div className="testimonial-base-card">
                 <div className="company-logo">
                   <img src={testimonial.companyLogo} alt="Company Logo" />
                 </div>
-                
+
                 <div className="profile-section">
                   <div className="author-image">
-                    <img src={testimonial.personImage} alt={testimonial.personName} />
+                    <img
+                      src={testimonial.personImage}
+                      alt={testimonial.personName}
+                    />
                   </div>
                   <div>
                     <div className="author-name">{testimonial.personName}</div>
-                    <div className="author-title">{testimonial.personTitle}</div>
+                    <div className="author-title">
+                      {testimonial.personTitle}
+                    </div>
                   </div>
                 </div>
-                
+
                 <div className="testimonial-overlay-card">
                   <div className="testimonial-content">
-                    <div className="testimonial-quote">{testimonial.quote}</div>
-                    <div className="testimonial-description">{testimonial.description}</div>
-                    <Button className="read-more-button">{testimonial.buttonText}</Button>
+                    <div className="testimonial-quote"style={{color:  "white"}}>{testimonial.quote}</div>
+                    <div className="testimonial-description" style={{color:  "white"}}>
+                      {testimonial.description}
+                    </div>
+                    <Button className="read-more-button">
+                      {testimonial.buttonText}
+                    </Button>
                   </div>
                 </div>
               </div>

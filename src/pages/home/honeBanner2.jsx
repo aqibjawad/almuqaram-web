@@ -302,7 +302,7 @@ const HomeBanner2 = () => {
         .main-heading {
           font-size: 3.5rem;
           font-weight: 800;
-          color: #0e9cb4;
+          color: black;
           margin-bottom: 30px;
           line-height: 1.2;
           animation: slide-in-left 1s ease-out;
@@ -338,7 +338,7 @@ const HomeBanner2 = () => {
         .btn-learn-more,
         .btn-get-started {
           padding: 15px 30px;
-          border-radius: 50px;
+          border-radius: 10px;
           font-weight: 600;
           text-decoration: none;
           transition: all 0.3s ease;

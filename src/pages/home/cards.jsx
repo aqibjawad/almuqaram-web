@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./cards.css";
 
 function Cards() {
@@ -20,7 +20,7 @@ function Cards() {
       height: "70%",
       objectFit: "cover",
       zIndex: 0,
-      borderRadius: "20px",
+      borderRadius: "1px",
     },
     overlay: {
       position: "absolute",
@@ -47,7 +47,7 @@ function Cards() {
       marginBottom: "0",
       textShadow: "0 2px 4px rgba(0, 0, 0, 0.7)",
       textAlign: "center",
-      marginTop:"3rem",
+      marginTop: "3rem",
       flex: 1,
     },
     heroTagline: {
@@ -59,8 +59,8 @@ function Cards() {
       fontSize: "1.2rem",
       textShadow: "0 1px 3px rgba(0, 0, 0, 0.7)",
       fontWeight: "500",
-      textAlign:"center",
-      marginTop:"3rem"
+      textAlign: "center",
+      marginTop: "3rem",
     },
     infoCards: {
       display: "grid",
@@ -115,7 +115,8 @@ function Cards() {
 
   const getCardStyle = (index) => {
     const baseStyle = { ...cardStyles.card };
-    let colorStyle, hoverStyle = {};
+    let colorStyle,
+      hoverStyle = {};
 
     // Apply hover color or default color
     if (hoveredCard === index) {
@@ -227,12 +228,33 @@ function Cards() {
 
   const responsiveStyles = getResponsiveStyles();
 
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger animations after component mounts
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleVideoLoad = () => {
+    setVideoLoaded(true);
+  };
+
   return (
     <div style={cardStyles.heroSection}>
-      <img
-        src="/sustainableImage.png"
-        style={responsiveStyles.backgroundImage || cardStyles.backgroundImage}
-        alt="Sustainable Hygiene Background"
+      <video
+        src="/forest-video.mp4"
+        className={`home-banner-video ${videoLoaded ? "video-loaded" : ""}`}
+           style={responsiveStyles.backgroundImage || cardStyles.backgroundImage}
+        onLoadedData={handleVideoLoad}
+        autoPlay
+        muted
+        loop
+        playsInline
       />
       <div style={cardStyles.overlay}></div>
 

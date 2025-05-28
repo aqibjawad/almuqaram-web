@@ -97,12 +97,8 @@ const HomeWork = () => {
         .homework-title {
           font-size: 3rem;
           font-weight: 700;
-          color: white;
-          background: linear-gradient(135deg, #30afb8, #2a9aa3);
-          padding: 1rem 2rem;
-          border-radius: 1rem;
-          box-shadow: 0 10px 30px rgba(48, 175, 184, 0.3);
-          margin: 0; /* Reset margin */
+          color: black;
+          text-align: left;
         }
 
         /* Accordion Styles - Unique classes */
@@ -249,7 +245,7 @@ const HomeWork = () => {
           color: white;
           padding: 1rem 3rem;
           border: none;
-          border-radius: 2rem;
+          border-radius: 10px;
           font-size: 1.25rem;
           font-weight: 600;
           cursor: pointer;
@@ -289,7 +285,7 @@ const HomeWork = () => {
           color: #30afb8;
           border: 2px solid #30afb8;
           padding: 0.875rem 2.5rem;
-          border-radius: 2rem;
+          border-radius: 10px;
           font-size: 1.125rem;
           font-weight: 600;
           cursor: pointer;

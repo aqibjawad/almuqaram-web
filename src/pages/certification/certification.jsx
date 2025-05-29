@@ -67,7 +67,7 @@ const Certification = () => {
       min-height: 100vh;
       overflow: hidden;
       position: relative;
-      margin-top: 10rem;
+      margin-top: 15rem;
       margin-right: 3rem;
       margin-left: 3rem;
       border-radius: 20px;
@@ -243,7 +243,7 @@ const Certification = () => {
       background: white;
       border: 2px solid #f0f0f0;
       border-radius: 16px;
-      padding: 40px;
+      padding: 30px;
       text-align: center;
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       position: relative;
@@ -252,8 +252,8 @@ const Certification = () => {
       opacity: 0;
       transform: translateY(30px);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      width: 300px;
-      height: 300px;
+      width: 280px;
+      height: 240px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -280,8 +280,8 @@ const Certification = () => {
     }
 
     .cert-logo {
-      max-width: 250px;
-      max-height: 250px;
+      max-width: 200px;
+      max-height: 180px;
       width: auto;
       height: auto;
       object-fit: contain;
@@ -337,8 +337,8 @@ const Certification = () => {
     }
 
     .modal-image {
-      max-width: 85vw;
-      max-height: 85vh;
+      max-width: 70vw;
+      max-height: 70vh;
       width: auto;
       height: auto;
       object-fit: contain;
@@ -409,6 +409,10 @@ const Certification = () => {
 
     /* Responsive design */
     @media (max-width: 1024px) {
+      .certifications-section {
+        margin-top: 12rem;
+      }
+      
       .certifications-header {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -424,14 +428,14 @@ const Certification = () => {
       }
 
       .certification-card {
-        width: 260px;
-        height: 180px;
-        padding: 30px;
+        width: 240px;
+        height: 200px;
+        padding: 25px;
       }
 
       .cert-logo {
         max-width: 180px;
-        max-height: 120px;
+        max-height: 150px;
       }
 
       .modal-content {
@@ -439,12 +443,16 @@ const Certification = () => {
       }
 
       .modal-image {
-        max-width: 85vw;
+        max-width: 75vw;
         max-height: 65vh;
       }
     }
 
     @media (max-width: 768px) {
+      .certifications-section {
+        margin-top: 8rem;
+      }
+      
       .certifications-container {
         padding: 40px 15px;
       }
@@ -460,9 +468,9 @@ const Certification = () => {
       }
 
       .certification-card {
-        padding: 25px;
-        width: 240px;
-        height: 160px;
+        padding: 20px;
+        width: 220px;
+        height: 180px;
       }
 
       .description-section p {
@@ -471,7 +479,7 @@ const Certification = () => {
       
       .cert-logo {
         max-width: 160px;
-        max-height: 100px;
+        max-height: 130px;
       }
 
       .modal-content {
@@ -480,21 +488,25 @@ const Certification = () => {
       }
 
       .modal-image {
-        max-width: 90vw;
+        max-width: 85vw;
         max-height: 60vh;
       }
     }
 
     @media (max-width: 480px) {
+      .certifications-section {
+        margin-top: 6rem;
+      }
+      
       .certification-card {
-        width: 220px;
-        height: 140px;
-        padding: 20px;
+        width: 200px;
+        height: 160px;
+        padding: 15px;
       }
       
       .cert-logo {
         max-width: 140px;
-        max-height: 80px;
+        max-height: 110px;
       }
 
       .modal-content {

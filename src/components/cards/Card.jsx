@@ -38,7 +38,7 @@ const Card = ({ image, title, description, packing, price, id }) => {
       // Show success state briefly, then redirect to cart
       setTimeout(() => {
         setIsAdded(false);
-        navigate('/cart'); // Redirect to cart page
+        navigate('/cart-page'); // Redirect to cart page
       }, 1500); // Reduced time to 1.5 seconds for better UX
       
     } catch (error) {

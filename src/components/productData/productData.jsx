@@ -1,35 +1,35 @@
 // Product data array with one image from each product folder
 const productData = [
   {
-    image: "/Product PNG Files/1740056501673.png",
+    image: "/Product PNG Files/1740051857512.png",
     title: "83120 - Alum Container"
-  },
+  }, 
   {
-    image: "/out of order/8325 - Alum Container/7.jpg",
+    image: "/Product PNG Files/02_20_2025_X-Design (3).png",
     title: "8325 - Alum Container"
   },
   {
-    image: "/out of order/8342 - Aluminium Container/1.jpg",
+    image: "/Product PNG Files/02_20_2025_X-Design (4).png",
     title: "8342 - Aluminium Container"
   },
   {
-    image: "/out of order/8389 - Alum Container/4.jpg",
+    image: "/Product PNG Files/79 (4).png",
     title: "8389 - Alum Container"
   },
   {
-    image: "/out of order/Alum Foil 1000 g 30 cm/16.jpg",
+    image: "/Product PNG Files/1740050748626.png",
     title: "Alum Foil 1000 g 30 cm"
   },
   {
-    image: "/out of order/Alum Foil 1000 g 45 cm/8.jpg",
+    image: "/Product PNG Files/1743740162998.png",
     title: "Alum Foil 1000 g 45 cm"
   },
   {
-    image: "/out of order/Alum Foil 1350 g 30 cm/93.jpg",
+    image: "/Product PNG Files/1743588394137.png",
     title: "Alum Foil 1350 g 30 cm"
   },
   {
-    image: "/out of order/Alum Foil 30 cm 25 sq/2.jpg",
+    image: "/Product PNG Files/1740056501673.png",
     title: "Alum Foil 30 cm 25 sq"
   },
   {

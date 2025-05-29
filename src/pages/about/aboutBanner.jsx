@@ -95,6 +95,7 @@ const AboutBanner = () => {
       font-size: 96px;
       font-weight: 900;
       line-height: 1;
+      margin-right: 20rem;
     }
 
     @media (max-width: 1024px) {
@@ -111,7 +112,7 @@ const AboutBanner = () => {
     }
 
     .title-hygiene {
-      background: linear-gradient(90deg, #14b8a6 0%, #2563eb 100%);
+      background: linear-gradient(135deg, #2dd4bf 0%, #0891b2 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -198,7 +199,7 @@ const AboutBanner = () => {
       justify-content: center;
       gap: 12px;
       padding: 16px 32px;
-      background: linear-gradient(90deg, #14b8a6 0%, #2563eb 100%);
+      background-color: #30afb8;
       color: white;
       border: none;
       border-radius: 16px;
@@ -211,9 +212,9 @@ const AboutBanner = () => {
     }
 
     .btn-get-started:hover {
-      background: linear-gradient(90deg, #0f766e 0%, #1d4ed8 100%);
-      box-shadow: 0 20px 40px rgba(20, 184, 166, 0.4);
-      transform: translateY(-4px);
+      background-color: #0f9488;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(48, 175, 184, 0.4);
     }
 
     .btn-get-started svg {

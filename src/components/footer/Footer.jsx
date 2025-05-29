@@ -63,9 +63,9 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="footer-copyright-section">
+            {/* <div className="footer-copyright-section">
                 <p className="footer-copyright-text">2023 © Midwest Tropical, Inc. All Rights Reserved. | <a href="#" className="footer-copyright-link">Terms & Conditions</a></p>
-            </div>
+            </div> */}
         </footer>
     );
 };

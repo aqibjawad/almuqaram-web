@@ -131,10 +131,12 @@ const HomeBanner2 = () => {
 
               <p className="main-description">
                 Founded in the heart of Ajman, UAE, AL MUQARRAM Hygienic
-                Products Industry LLC is one of the fastest-growing converters
-                of hygienic paper products in the GCC and beyond. Backed by the
-                30-year legacy of the AL MUQARRAM Group, we're committed to
-                quality, sustainability, and customer satisfaction.
+                Products Industry LLC is a rapidly growing manufacturer and
+                converter of hygienic paper products, serving customers across
+                the GCC and beyond. Backed by the 30-year industrial legacy of
+                the AL MUQARRAM Group, we operate with a clear mission: to
+                deliver high-quality, sustainable hygiene solutions that meet
+                the evolving needs of households, businesses, and institutions.
               </p>
 
               <div className="action-buttons">
@@ -631,13 +633,21 @@ const HomeBanner2 = () => {
         }
 
         .carousel-dot-active {
-          background: linear-gradient(135deg, #2dd4bf 0%, #0891b2 100%) !important;
+          background: linear-gradient(
+            135deg,
+            #2dd4bf 0%,
+            #0891b2 100%
+          ) !important;
           transform: scale(1.4);
           box-shadow: 0 0 15px rgba(45, 212, 191, 0.6);
         }
 
         .carousel-dot-active:hover {
-          background: linear-gradient(135deg, #2dd4bf 0%, #0891b2 100%) !important;
+          background: linear-gradient(
+            135deg,
+            #2dd4bf 0%,
+            #0891b2 100%
+          ) !important;
           transform: scale(1.4);
         }
 

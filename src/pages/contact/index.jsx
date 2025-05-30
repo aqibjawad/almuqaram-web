@@ -1,207 +1,92 @@
-import React, { useState } from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
 const ContactForm = () => {
-  const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    website: '',
-    productName: ''
-  });
-
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [id]: value
-    }));
-  };
-
-  const handleContinue = async () => {
-    try {
-      // Send email with form data
-      const emailData = {
-        to: 'aqibjawad123@gmail.com', // Replace with your email
-        subject: 'New Contact Form Submission',
-        body: `
-          New contact form submission:
-          
-          Full Name: ${formData.fullName}
-          Email: ${formData.email}
-          Phone: ${formData.phone}
-          Website: ${formData.website}
-          Product Name: ${formData.productName}
-        `
-      };
-
-      // In a real application, you would send this to your backend
-      console.log('Email data to send:', emailData);
-      
-      // Clear cart (assuming cart is stored in localStorage or state)
-      // If using localStorage:
-      // localStorage.removeItem('cart');
-      
-      // If cart is managed by parent component, you would call a clearCart function
-      // clearCart();
-      
-      alert('Form submitted successfully! Cart has been cleared.');
-      
-      // Move to next step
-      setStep(2);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Error submitting form. Please try again.');
-    }
-  };
-  
   return (
-    <div className="form-container">
-      <div className="form-sidebar">
-        <h1>Let Us Know Your Product Goals — We'll Handle the Rest.</h1>
-      </div>
-      
-      <div className="form-content">
-        <div className="step-indicator">
-          <div className={`step-number ${step === 1 ? 'active' : ''}`}>
-            <span>1</span>
-          </div>
-          <span className="step-text">Contact Info</span>
-          {/* <div className="step-line"></div>
-          <div className={`step-number ${step === 2 ? 'active' : ''}`}>
-            <span>2</span>
-          </div> */}
-          {/* <span className="step-text">Business Details</span> */}
+    <div>
+      <div className="contact-container-head">
+        <div className="contact-left-title">
+          <p className="contact-subtitle">Contact Us</p>
+          <h2 className="contact-title">Get in Touch</h2>
         </div>
-        
-        <div className="form-fields">
-          {step === 1 && (
-            <>
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="fullName">Full Name</label>
-                  <input 
-                    type="text" 
-                    id="fullName"
-                    value={formData.fullName}
-                    onChange={handleInputChange}
-                  />
-                </div>
+        <div className="contact-right-title">
+          <p className="contact-description">
+            We're here to assist you with any inquiries, partnership
+            opportunities, or product information. Reach out to us, and our
+            dedicated team will respond promptly to support your needs.
+          </p>
+        </div>
+      </div>
+      <div className="contact-container">
+        <div className="contact-left">
+          <div className="contact-info">
+            <div className="contact-method">
+              <span className="icon">
+                {" "}
+                <img style={{height:"70px", width:"70px"}} src="/email.jpg" />{" "}
+              </span>
+              <div>
+                <label>EMAIL US</label>
+                <p>info@softcareworld.com</p>
               </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input 
-                    type="email" 
-                    id="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                  />
-                </div>
+            </div>
+            <div className="contact-method">
+              <span className="icon">
+                {" "}
+                <img style={{height:"70px", width:"70px"}} src="/phone.jpg" />{" "}
+              </span>
+              <div>
+                <label>PHONE NUMBER</label>
+                <p>+971 67489551</p>
               </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="phone">Phone Number</label>
-                  <input 
-                    type="tel" 
-                    id="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="website">Website URL</label>
-                  <input 
-                    type="url" 
-                    id="website"
-                    value={formData.website}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
+            </div>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.8295374875016!2d55.4833982!3d25.410201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f59c4f45e6df%3A0xadd1b888e0102ac!2sAl%20Muqarram%20Hygienic%20Products%20Industry%20LLC!5e0!3m2!1sen!2sae!4v1706536161125!5m2!1sen!2sae"
+            width="100%"
+            height="200"
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+          <div className="social-links">
+            <span>Connect with us:</span>
+            <div className="icons">
+              <img style={{height:"100px", width:"300px"}} src='/social.jpg' />
+            </div>
+          </div>
+        </div>
 
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="productName">Your Product</label>
-                  <div style={{
-                    border: '1px solid #ddd',
-                    borderRadius: '4px',
-                    padding: '10px',
-                    marginTop: '8px',
-                    backgroundColor: '#f9f9f9',
-                    maxHeight: '120px',
-                    overflowY: 'auto'
-                  }}>
-                    <strong>Products in Cart:</strong>
-                    {(() => {
-                      try {
-                        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                        if (cart.length === 0) {
-                          return <div style={{ color: '#666', fontStyle: 'italic' }}>No products in cart</div>;
-                        }
-                        return cart.map((item, index) => (
-                          <div key={index} style={{ 
-                            padding: '4px 0', 
-                            borderBottom: index < cart.length - 1 ? '1px solid #eee' : 'none',
-                            color: '#333'
-                          }}>
-                            • {item.title || item.name || item.productName || `Product ${index + 1}`}
-                          </div>
-                        ));
-                      } catch (error) {
-                        console.error('Error reading cart from localStorage:', error);
-                        return <div style={{ color: '#666', fontStyle: 'italic' }}>Error loading products</div>;
-                      }
-                    })()}
-                  </div>
-                </div>
-              </div>
-              
-              <div className="consent-text">
-                By providing your number, you agree to be contacted by ALMUQARRAM Hygienic Products Industry LLC via call or text for partnership 
-                and business-related purposes. We respect your privacy — your number will not be shared with third parties. Message and data rates 
-                may apply. Message frequency may vary. (<a href="#" className="privacy-link">Privacy Policy</a>)
-              </div>
-              
-              <button type="button" className="continue-btn" onClick={handleContinue}>Continue</button>
-            </>
-          )}
-          
-          {step === 2 && (
-            <>
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="business">Business Name</label>
-                  <input type="text" id="business" />
-                </div>
-              </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="industry">Industry</label>
-                  <input type="text" id="industry" />
-                </div>
-              </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" rows="4"></textarea>
-                </div>
-              </div>
-              
-              <div className="form-actions">
-                <button type="button" className="back-btn" onClick={() => setStep(1)}>Back</button>
-                <button type="button" className="submit-btn">Submit</button>
-              </div>
-            </>
-          )}
+        <div className="contact-right">
+          <div className="form-header">
+            <span className="step active">1</span>
+            <span className="step-label active">Contact Info</span>
+            <span className="divider"></span>
+            <span className="step">2</span>
+            <span className="step-label">Business Details</span>
+          </div>
+          <form className="contact-form">
+            <label>Full Name</label>
+            <input type="text" name="fullName" />
+
+            <label>Website URL</label>
+            <input type="url" name="website" />
+
+            <label>Phone Number</label>
+            <input type="tel" name="phone" />
+
+            <label>Email</label>
+            <input type="email" name="email" />
+
+            <p className="disclaimer">
+              By providing your number, you agree to be contacted by AL MUQARRAM
+              Hygienic Products Industry LLC via call or text for partnership
+              and business-related purposes. We respect your privacy — your
+              number will not be shared with third parties. Messages and data
+              rates may apply. Message frequency may vary.{" "}
+              <a href="#">(Privacy Policy)</a>
+            </p>
+            <button type="submit">Continue</button>
+          </form>
         </div>
       </div>
     </div>

@@ -80,7 +80,7 @@ const StatsSection = () => {
 
 const styles = {
   container: {
-    marginTop: '7rem',
+    marginTop: '2rem',
     padding: '20px',
   },
   cardsGrid: {

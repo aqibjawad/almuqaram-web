@@ -1,109 +1,269 @@
-import React, { useState, useEffect } from 'react';
-import './ProductDevelopment.css'; // Enhanced CSS file
+import React, { useState } from "react";
 
 const sections = [
   {
-    title: 'Product Development & Manufacturing',
+    title: "product development & manufacturing",
     items: [
-      { name: 'Facial Tissue Production', icon: '🧻', desc: 'Advanced tissue manufacturing with premium softness and absorbency' },
-      { name: 'T-Tork Converting', icon: '🔄', desc: 'Specialized converting processes for industrial paper products' },
-      { name: 'Maxi Rolls Manufacturing', icon: '📦', desc: 'Large-scale roll production for commercial and industrial use' },
-      { name: 'Kitchen Towel Fabrication', icon: '🍽️', desc: 'Durable kitchen towels designed for heavy-duty cleaning' },
-      { name: 'Paper Napkin Design', icon: '🎨', desc: 'Custom napkin designs with superior quality and aesthetics' },
-      { name: 'Toilet Rolls Processing', icon: '🧻', desc: 'High-quality toilet paper manufacturing with eco-friendly materials' },
-      { name: 'Folded Hand Towels', icon: '📄', desc: 'Precision-folded towels for commercial and hospitality sectors' },
-      { name: 'Rolled Hand Towels', icon: '🔄', desc: 'Continuous roll towels for high-traffic washroom facilities' },
-      { name: 'Clinical Bed Rolls', icon: '🏥', desc: 'Medical-grade bed rolls meeting healthcare industry standards' },
+      "Facial Tissue Production",
+      "T-Tork Converting",
+      "Maxi Rolls Manufacturing",
+      "Kitchen Towel Fabrication",
+      "Paper Napkin Design",
+      "Toilet Rolls Processing",
+      "Folded Hand Towels",
+      "Rolled Hand Towels",
+      "Clinical Bed Rolls",
     ],
-    stats: [
-      { number: '50+', label: 'Products' },
-      { number: '15+', label: 'Years Experience' },
-      { number: '99%', label: 'Quality Rate' },
-      { number: '24/7', label: 'Production' }
-    ]
+    image:
+      "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=500&h=300&fit=crop&crop=center",
+    imagePosition: "right",
   },
   {
-    title: 'Distribution & Sales',
-    placeholder: 'Distribution and sales content will be displayed here'
+    title: "distribution & sales",
+    items: [
+      "Nationwide Distribution Network",
+      "B2B Sales Solutions",
+      "Retail Partnerships",
+      "Direct Client Services",
+      "Supply Chain Management",
+      "E-commerce Integration",
+      "Customer Support Services",
+      "Market Expansion",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=500&h=300&fit=crop&crop=center",
+    imagePosition: "left",
   },
   {
-    title: 'Quality & Sustainability',
-    placeholder: 'Quality and sustainability content will be displayed here'
+    title: "quality & sustainability",
+    items: [
+      "ISO Quality Standards",
+      "Eco-Friendly Materials",
+      "Sustainable Manufacturing",
+      "Quality Control Testing",
+      "Environmental Compliance",
+      "Waste Reduction Programs",
+      "Recycling Initiatives",
+      "Carbon Footprint Reduction",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1581093458791-9d42e4d6a586?w=500&h=300&fit=crop&crop=center",
+    imagePosition: "right",
+  },
+  {
+    title: "research & innovation",
+    items: [
+      "Product Innovation Labs",
+      "Material Science Research",
+      "Technology Integration",
+      "Process Optimization",
+      "New Product Development",
+      "Market Research",
+      "Consumer Insights",
+      "Future Trend Analysis",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&h=300&fit=crop&crop=center",
+    imagePosition: "left",
+  },
+  {
+    title: "customer service & support",
+    items: [
+      "24/7 Customer Support",
+      "Technical Assistance",
+      "Product Training",
+      "Installation Services",
+      "Maintenance Support",
+      "Warranty Services",
+      "Feedback Management",
+      "Customer Satisfaction Programs",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&fit=crop&crop=center",
+    imagePosition: "right",
   },
 ];
 
 const ProductDevelopment = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    // Add staggered animation to items
-    const items = document.querySelectorAll('.pd-manufacturing-item');
-    items.forEach((item, index) => {
-      item.style.animationDelay = `${index * 0.1}s`;
-      item.style.animation = 'pdFadeInUp 0.6s ease-out forwards';
-    });
-  }, [activeIndex]);
-
-  const toggleSection = (index) => {
-    setActiveIndex(activeIndex === index ? -1 : index);
-  };
-
   return (
-    <div className="pd-main-wrapper">
-      <div className="pd-accordion-wrapper">
-        {sections.map((section, index) => (
-          <div 
-            key={index} 
-            className={`pd-section ${activeIndex === index ? 'pd-active' : 'pd-inactive'}`}
+    <div
+      style={{
+        margin: "0 auto",
+        padding: "20px",
+        fontFamily: '"Segoe UI", sans-serif',
+        marginLeft: "3rem",
+        marginRight: "3rem",
+      }}
+    >
+      {sections.map((section, index) => (
+        <div
+          key={index}
+          style={{
+            marginBottom: "4px",
+            backgroundColor: "#ffffff",
+            borderRadius: "8px",
+            overflow: "hidden",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "20px 30px",
+              backgroundColor: activeIndex === index ? "#30AFB8" : "#f8f9fa",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              color: activeIndex === index ? "#ffffff" : "#333333",
+            }}
+            onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
           >
-            <div 
-              className="pd-section-header"
-              onClick={() => toggleSection(index)}
+            <span
+              style={{
+                fontSize: "20px",
+                fontWeight: "600",
+                textTransform: "lowercase",
+                letterSpacing: "0.5px",
+              }}
             >
-              <div className="pd-header-inner">
-                <h2 className="pd-section-title">{section.title}</h2>
-                <button className="pd-discover-button">
-                  Discover
-                  <span className="pd-arrow">→</span>
-                </button>
+              {section.title}
+            </span>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                fontSize: "16px",
+                fontWeight: "500",
+              }}
+            >
+              <span>Discover</span>
+              <span
+                style={{
+                  transform:
+                    activeIndex === index ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.3s ease",
+                  fontSize: "18px",
+                }}
+              >
+                ↓
+              </span>
+            </div>
+          </div>
+
+          {activeIndex === index && (
+            <div
+              style={{
+                padding: "30px",
+                backgroundColor: "#ffffff",
+                borderTop: "1px solid #e0e0e0",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  gap: "40px",
+                  alignItems: "flex-start",
+                  flexDirection:
+                    section.imagePosition === "left" ? "row-reverse" : "row",
+                }}
+              >
+                {/* List Section */}
+                <div style={{ flex: "1" }}>
+                  <ul
+                    style={{
+                      listStyle: "none",
+                      padding: "0",
+                      margin: "0",
+                      display: "grid",
+                      gridTemplateColumns:
+                        "repeat(auto-fit, minmax(280px, 1fr))",
+                      gap: "15px",
+                    }}
+                  >
+                    {section.items.map((item, idx) => (
+                      <li
+                        key={idx}
+                        style={{
+                          padding: "15px 20px",
+                          backgroundColor: "#f8f9fa",
+                          border: "1px solid #e0e0e0",
+                          borderRadius: "8px",
+                          fontSize: "15px",
+                          color: "#333",
+                          boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                          transition: "all 0.3s ease",
+                          cursor: "pointer",
+                          position: "relative",
+                          paddingLeft: "45px",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.backgroundColor = "#30AFB8";
+                          e.target.style.color = "#ffffff";
+                          e.target.style.transform = "translateY(-3px)";
+                          e.target.style.boxShadow =
+                            "0 6px 12px rgba(0,0,0,0.15)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.backgroundColor = "#f8f9fa";
+                          e.target.style.color = "#333";
+                          e.target.style.transform = "translateY(0)";
+                          e.target.style.boxShadow =
+                            "0 2px 4px rgba(0,0,0,0.05)";
+                        }}
+                      >
+                        <span
+                          style={{
+                            position: "absolute",
+                            left: "15px",
+                            top: "50%",
+                            transform: "translateY(-50%)",
+                            width: "8px",
+                            height: "8px",
+                            backgroundColor: "#30AFB8",
+                            borderRadius: "50%",
+                          }}
+                        ></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Image Section */}
+                <div
+                  style={{
+                    flex: "0 0 400px",
+                    minHeight: "300px",
+                  }}
+                >
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    style={{
+                      width: "100%",
+                      height: "300px",
+                      objectFit: "cover",
+                      borderRadius: "12px",
+                      boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+                      transition: "transform 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = "scale(1.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = "scale(1)";
+                    }}
+                  />
+                </div>
               </div>
             </div>
-            
-            {activeIndex === index && (
-              <div className="pd-section-content">
-                {section.items ? (
-                  <>
-                    <div className="pd-items-grid">
-                      {section.items.map((item, idx) => (
-                        <div key={idx} className="pd-manufacturing-item">
-                          <div className="pd-item-icon">{item.icon}</div>
-                          <h3 className="pd-item-title">{item.name}</h3>
-                          <p className="pd-item-desc">{item.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    {section.stats && (
-                      <div className="pd-stats-container">
-                        {section.stats.map((stat, idx) => (
-                          <div key={idx} className="pd-stat-item">
-                            <div className="pd-stat-number">{stat.number}</div>
-                            <div className="pd-stat-label">{stat.label}</div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <div className="pd-placeholder-section">
-                    <p className="pd-placeholder-text">{section.placeholder}</p>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 };

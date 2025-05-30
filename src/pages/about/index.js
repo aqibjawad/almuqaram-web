@@ -1,7 +1,7 @@
 import React from "react";
 import "./about.css";
 import AboutBanner from "./aboutBanner";
-import StatsSection from "./aboutStats";
+// import StatsSection from "./aboutStats";
 import AboutCare from "./aboutCare";
 // import Certifications from "./aboutCertificate";
 import Certification from "../certification/certification";
@@ -10,6 +10,7 @@ import TrustedCompanies from "./aboutCompanies";
 import ProductDevelopment from "./aboutDevelopment";
 import AboutBrand from "./aboutBrands";
 import HomeAchievement from "../home/homeAchievements";
+import ProductShowcase from "./aboutShowCase";
 
 const AboutUs = () => {
   return (
@@ -18,11 +19,12 @@ const AboutUs = () => {
         <div className="aboutSectionIndex">
           <AboutBanner />
         </div>
-        <StatsSection />
+        {/* <StatsSection /> */}
         <ProductDevelopment />
+        <ProductShowcase />
         <AboutCare />
         {/* <AboutSection /> */}
-        <TrustedCompanies />
+        {/* <TrustedCompanies /> */}
       </div>
       <Certification />
       {/* <HomeAchievement /> */}

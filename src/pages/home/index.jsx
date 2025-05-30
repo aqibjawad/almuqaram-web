@@ -3,12 +3,13 @@ import HomeBanner from "./homeBanner";
 import HomeBanner2 from "./honeBanner2";
 import HomeCards from "./homeCards";
 import Cards from "./cards";
-import TrustedCompanies from "./trustedComp";
 import HomeWork from "./homeWork";
 import HomeRsult from "./homeResult";
 import HomeAchievement from "./homeAchievements";
 import HomeTestinomial from "./homeTestinomial";
 import HomeDemands from "./homeDeamds";
+import TrustedCompanies from "../trustedCompany";
+import ContactForm from "./homeContact";
 
 const Home = () => {
   return (
@@ -16,15 +17,16 @@ const Home = () => {
       <div style={{ marginTop: "7rem", marginLeft: "3rem" }}>
         <HomeBanner />
         <HomeBanner2 />
-        <HomeCards />
-        {/* <TrustedCompanies /> */}
+        {/* <HomeCards /> */}
         <HomeWork />
-        {/* <HomeRsult /> */}
+        <HomeRsult />
       </div>
       {/* <HomeAchievement /> */}
+      <TrustedCompanies />
       <Cards />
       <HomeTestinomial />
-      {/* <HomeDemands /> */}
+      <HomeDemands />
+      <ContactForm /> 
     </div>
   );
 };

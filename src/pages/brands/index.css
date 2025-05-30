@@ -1,41 +1,50 @@
-.brandImage {
-    width: 93%;
-    margin-left: 3rem;
-    margin-top: 8rem;
+.container {
+  width: 100%;
+  height: 70vh;
+  transition: background-color 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rem;
 }
 
-/* Tablet styles (768px and below) */
-@media screen and (max-width: 768px) {
-    .brandImage {
-        width: 90%;
-        margin-left: 2rem;
-        margin-top: 7rem;
-    }
+.image-section {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-/* Mobile styles (480px and below) */
-@media screen and (max-width: 480px) {
-    .brandImage {
-        width: 95%;
-        margin-left: 1rem;
-        margin-top:6rem;
-    }
+.brands {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1rem;
 }
 
-/* Small mobile styles (320px and below) */
-@media screen and (max-width: 320px) {
-    .brandImage {
-        width: 98%;
-        margin-left: 0.5rem;
-        margin-top: 5rem;
-    }
+.brand {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 0.5rem;
+  /* border: 2px solid #333; */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* Large desktop styles (1200px and above) */
-@media screen and (min-width: 1200px) {
-    .brandImage {
-        width: 90%;
-        margin-left: 4rem;
-        margin-top: 8rem;
-    }
+.brand:hover {
+  transform: scale(1.05);
+}
+
+.brand img {
+  height: 120px; /* adjust as needed */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }

@@ -25,7 +25,7 @@ const HomeDemands = () => {
       className="demands"
     >
       <Row>
-        <Col>
+        <Col md={9}>
           <div className="demands-heading">
             Gain Valuable Insights into Hygienic Product Manufacturing and
             Global Private Label Trends
@@ -34,8 +34,8 @@ const HomeDemands = () => {
             Contact Us <ArrowUpRight />
           </div>
         </Col>
-        <Col>
-          
+        <Col md={3}>
+          <img className="mt-5" src="/demandFigma.jpg" />
         </Col>
       </Row>
     </div>

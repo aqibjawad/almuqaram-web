@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
-import "./about.css"
 
 const TrustedCompanies = () => {
   const [partner, setPartner] = useState([]);
@@ -45,73 +44,116 @@ const TrustedCompanies = () => {
     setPartner(staticPartners);
   }, []);
 
-  // Card style based on the provided CSS properties
-  const cardStyle = {
-    width: 321,
-    height: 187,
-    borderRadius: "19px",
-    paddingTop: "43px",
-    paddingRight: "40px",
-    paddingBottom: "43px",
-    paddingLeft: "40px",
-    gap: "10px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: "0 1rem",
-    backgroundColor: "#ffffff",
-    boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
+  // Unique styles for this component
+  const trustedCompaniesStyles = {
+    trustedSection: {
+      padding: "4rem 0",
+      backgroundColor: "#1D9FB8",
+    },
+    trustedContainer: {
+      padding: "0 1rem",
+      marginTop: "2rem",
+    },
+    trustedHeaderWrapper: {
+      textAlign: "center",
+      marginBottom: "3rem",
+    },
+    trustedTitle: {
+      fontSize: "2.5rem",
+      fontWeight: "700",
+      color: "#2c3e50",
+      marginBottom: "1rem",
+      fontFamily: "Arial, sans-serif",
+    },
+    trustedDescription: {
+      fontSize: "1.1rem",
+      color: "#6c757d",
+      lineHeight: "1.6",
+      maxWidth: "800px",
+      margin: "0 auto",
+    },
+    trustedMarqueeWrapper: {
+      overflow: "hidden",
+      padding: "2rem 0",
+    },
+    trustedPartnerCard: {
+      width: "321px",
+      height: "187px",
+      borderRadius: "19px",
+      padding: "43px 40px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      margin: "0 1rem",
+      backgroundColor: "#ffffff",
+      boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      cursor: "pointer",
+    },
+    trustedPartnerCardHover: {
+      transform: "translateY(-5px)",
+      boxShadow: "0px 8px 25px rgba(0, 0, 0, 0.15)",
+    },
+    trustedPartnerImage: {
+      maxWidth: "100%",
+      maxHeight: "100%",
+      objectFit: "contain",
+      borderRadius: "8px",
+    },
+    trustedPartnerLink: {
+      textDecoration: "none",
+      display: "block",
+      width: "100%",
+      height: "100%",
+    },
   };
 
   return (
-    <div className="logos-carousel">
-      <Container>
-        <div style={{ }}>
-          <div
-            className="text-center"
-            style={{ fontWeight: "800", fontSize: "74px", color: "white" }}
-          >
+    <section style={trustedCompaniesStyles.trustedSection}>
+      <div style={trustedCompaniesStyles.trustedContainer}>
+        <div style={trustedCompaniesStyles.trustedHeaderWrapper}>
+          <h2 style={trustedCompaniesStyles.trustedTitle}>
             Trusted Worldwide.
-          </div>
-          <div
-            style={{ color: "white", fontSize: "24px", fontWeight: "400", textAlign:"center", marginTop:"1rem" }}
-          >
+          </h2>
+          <p style={trustedCompaniesStyles.trustedDescription}>
             Founded in the heart of Ajman, UAE, AL MUQARRAM Hygienic Products
             Industry LLC is one of the fastest-growing converters of hygienic
             paper products in the GCC and beyond.
-          </div>
+          </p>
         </div>
-
-        <div>
-          <Marquee
-            className="mt-5"
-            gradient={false}
-            style={{ overflow: "hidden" }}
-          >
+        
+        <div style={trustedCompaniesStyles.trustedMarqueeWrapper}>
+          <Marquee pauseOnHover={true} speed={50} gradient={false}>
             {partner.map((partners, index) => (
               <Link
+                key={partners.id}
                 to={partners.link}
                 target="_blank"
-                key={partners.id}
-                style={{ textDecoration: "none" }}
+                rel="noopener noreferrer"
+                style={trustedCompaniesStyles.trustedPartnerLink}
               >
-                <div style={cardStyle}>
+                <div
+                  style={trustedCompaniesStyles.trustedPartnerCard}
+                  onMouseEnter={(e) => {
+                    Object.assign(e.target.style, trustedCompaniesStyles.trustedPartnerCardHover);
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = "translateY(0)";
+                    e.target.style.boxShadow = "0px 4px 16px rgba(0, 0, 0, 0.08)";
+                  }}
+                >
                   <img
-                    style={{
-                      maxWidth: "100%",
-                      maxHeight: "100px",
-                      objectFit: "contain",
-                    }}
                     src={partners.companies_image}
-                    alt={`Partner Logo ${index + 1}`}
+                    alt={`Partner ${partners.id}`}
+                    style={trustedCompaniesStyles.trustedPartnerImage}
                   />
                 </div>
               </Link>
             ))}
           </Marquee>
         </div>
-      </Container>
-    </div>
+      </div>
+    </section>
   );
 };
 

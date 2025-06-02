@@ -212,8 +212,8 @@
 
 /*-------------------------- Product Page ------------------- */
 
-.home-products{
-  background-color: #1D9FB8;
+.home-products {
+  background-color: #1d9fb8;
   margin-right: 3rem;
   padding: 20px;
   margin-top: 3rem;
@@ -483,4 +483,37 @@
   margin-left: 100px;
   margin-top: 5rem;
   margin-bottom: 2rem;
+}
+
+.stat-box {
+  background: linear-gradient(135deg, #2dd4bf 0%, #0891b2 100%);
+  color: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slide-up-stats 1s ease-out forwards;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stat-value {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  margin: 0 0 10px 0;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  line-height: 1.4;
+  margin: 0;
+  color: white;
 }

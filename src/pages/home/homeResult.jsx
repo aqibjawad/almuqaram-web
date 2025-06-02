@@ -19,6 +19,45 @@ const HomeRsult = () => {
               paper products in the GCC and beyond.
             </div>
           </div>
+
+          <Row className="mt-3">
+            <Col md={6} sm={12} lg={6}>
+              <div className="stat-box">
+                <h2 className="stat-value">99 %</h2>
+                <p className="stat-label">
+                  Lorem ipsum dolor sit amet, consectetur elit lorem ipsum
+                  dolor.
+                </p>
+              </div>
+            </Col>
+            <Col md={6} sm={12} lg={6}>
+              <div className="stat-box">
+                <h2 className="stat-value">99 %</h2>
+                <p className="stat-label">
+                  Lorem ipsum dolor sit amet, consectetur elit lorem ipsum
+                  dolor.
+                </p>
+              </div>
+            </Col>
+            <Col className="mt-3" md={6} sm={12} lg={6}>
+              <div className="stat-box">
+                <h2 className="stat-value">99 %</h2>
+                <p className="stat-label">
+                  Lorem ipsum dolor sit amet, consectetur elit lorem ipsum
+                  dolor.
+                </p>
+              </div>
+            </Col>
+            <Col className="mt-3" md={6} sm={12} lg={6}>
+              <div className="stat-box">
+                <h2 className="stat-value">99 %</h2>
+                <p className="stat-label">
+                  Lorem ipsum dolor sit amet, consectetur elit lorem ipsum
+                  dolor.
+                </p>
+              </div>
+            </Col>
+          </Row>
         </Col>
         <Col>
           <div>

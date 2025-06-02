@@ -127,7 +127,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              <div className="form-row">
+              {/* <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="productName">Your Product</label>
                   <div style={{
@@ -162,7 +162,7 @@ const ContactForm = () => {
                     })()}
                   </div>
                 </div>
-              </div>
+              </div> */}
               
               <div className="consent-text">
                 By providing your number, you agree to be contacted by ALMUQARRAM Hygienic Products Industry LLC via call or text for partnership 

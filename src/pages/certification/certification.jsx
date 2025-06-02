@@ -1,599 +1,335 @@
-import React, { useState, useRef } from 'react';
-import { ArrowUpRight, X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
 
-const Certification = () => {
-  const [hoveredCert, setHoveredCert] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const timeoutRef = useRef(null);
-
-  const certifications = [
-    {
-      id: 1,
-      logo: '/pdf/pdf1_page-0001.jpg',
-      alt: 'FSC Logo',
-      description: 'Sourcing responsibly from certified forests.'
+function Cards() {
+  const cardStyles = {
+    heroSection: {
+      minHeight: "40vh",
+      position: "relative",
+      color: "#333", // Changed to dark text for white background
+      overflow: "hidden",
+      display: "flex",
+      flexDirection: "column",
+      marginTop: "10rem",
+      backgroundColor: "white",
     },
-    {
-      id: 2,
-      logo: '/pdf/pdf2.jpg',
-      alt: 'ISO 9001:2015 Logo',
-      description: '9001 International quality management system certification.'
+    backgroundImage: {
+      marginTop: "25px",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "70%",
+      objectFit: "cover",
+      zIndex: 0,
+      borderRadius: "1px",
     },
-    {
-      id: 3,
-      logo: '/pdf/pdf3-Image.jpg',
-      alt: 'CE Logo',
-      description: 'CE Conformity with EU health, safety, and environmental standards.'
+    overlay: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "70%",
+      zIndex: 1,
     },
-    {
-      id: 4,
-      logo: '/pdf/pdf4_page-0001.jpg',
-      alt: 'GMP Logo',
-      description: 'GMP Good Manufacturing Practice - clean, safe, compliant production.'
-    }
-  ];
-
-  const handleMouseEnter = (cert) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    setHoveredCert(cert);
-    setShowModal(true);
+    heroContent: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: "3rem 2rem",
+      position: "relative",
+      zIndex: 2,
+      height: "45vh",
+      width: "100%",
+    },
+    heroTitle: {
+      fontSize: "3rem",
+      fontWeight: "bold",
+      lineHeight: 1.2,
+      marginBottom: "0",
+      textShadow: "0 2px 4px rgba(0, 0, 0, 0.7)",
+      textAlign: "center",
+      marginTop: "3rem",
+      flex: 1,
+    },
+    heroTagline: {
+      textAlign: "right",
+      maxWidth: "350px",
+      marginRight: "2rem",
+    },
+    taglineText: {
+      fontSize: "1.2rem",
+      textShadow: "0 1px 3px rgba(0, 0, 0, 0.7)",
+      fontWeight: "500",
+      textAlign: "center",
+      marginTop: "3rem",
+    },
+    infoCards: {
+      display: "grid",
+      gridTemplateColumns: "repeat(4, 1fr)",
+      gap: "1.5rem",
+      padding: "2rem",
+      marginTop: "15px",
+      zIndex: 3,
+      position: "relative",
+      width: "100%",
+      boxSizing: "border-box",
+    },
+    card: {
+      padding: "1.5rem",
+      borderRadius: "12px",
+      minHeight: "190px",
+      display: "flex",
+      flexDirection: "column",
+      transition: "all 0.3s ease",
+      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+      boxSizing: "border-box",
+      cursor: "pointer",
+      position: "relative",
+      overflow: "hidden",
+    },
+    cardHover: {
+      transform: "translateY(-8px)",
+      boxShadow: "0 12px 24px rgba(0, 0, 0, 0.25)",
+    },
+    // Default card style - white background with half background effect
+    defaultCard: {
+      backgroundColor: "white",
+      color: "#333",
+    },
+    // Half background overlay
+    cardHalfBg: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "50%",
+      background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
+      zIndex: -1,
+      transition: "all 0.3s ease",
+    },
+    // Hover card style - #1B3434 background
+    hoveredCard: {
+      backgroundColor: "#1B3434",
+      color: "white",
+    },
+    hoveredCardHalfBg: {
+      background: "linear-gradient(135deg, #2a4a4a 0%, #1B3434 100%)",
+    },
+    cardTitle: {
+      fontSize: "1.4rem",
+      marginBottom: "1rem",
+      color: "inherit",
+      fontWeight: "600",
+      position: "relative",
+      zIndex: 1,
+    },
+    cardText: {
+      fontSize: "0.95rem",
+      lineHeight: 1.6,
+      color: "inherit",
+      position: "relative",
+      zIndex: 1,
+    },
   };
 
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setShowModal(false);
-      setHoveredCert(null);
-    }, 200);
+  const [hoveredCard, setHoveredCard] = React.useState(null);
+
+  const getCardStyle = (index) => {
+    const baseStyle = { ...cardStyles.card };
+    let colorStyle,
+      hoverStyle = {};
+
+    // Apply hover color or default color
+    if (hoveredCard === index) {
+      colorStyle = cardStyles.hoveredCard;
+      hoverStyle = cardStyles.cardHover;
+    } else {
+      colorStyle = cardStyles.defaultCard;
+    }
+
+    return { ...baseStyle, ...colorStyle, ...hoverStyle };
   };
 
-  const handleModalMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+  const getHalfBgStyle = (index) => {
+    if (hoveredCard === index) {
+      return { ...cardStyles.cardHalfBg, ...cardStyles.hoveredCardHalfBg };
     }
+    return cardStyles.cardHalfBg;
   };
 
-  const handleModalMouseLeave = () => {
-    setShowModal(false);
-    setHoveredCert(null);
+  const getResponsiveStyles = () => {
+    const width = window.innerWidth || 1200;
+
+    if (width <= 576) {
+      return {
+        infoCards: {
+          ...cardStyles.infoCards,
+          gridTemplateColumns: "1fr",
+          marginTop: "1rem",
+          padding: "1rem",
+        },
+        heroContent: {
+          ...cardStyles.heroContent,
+          flexDirection: "column",
+          height: "auto",
+          padding: "2rem 1.5rem",
+          alignItems: "center",
+        },
+        heroTagline: {
+          ...cardStyles.heroTagline,
+          textAlign: "center",
+          marginTop: "1.5rem",
+          marginRight: "0",
+          maxWidth: "100%",
+        },
+        heroTitle: {
+          ...cardStyles.heroTitle,
+          fontSize: "2rem",
+        },
+        backgroundImage: {
+          ...cardStyles.backgroundImage,
+          width: "calc(100% - 0.5rem)",
+          marginRight: "0.5rem",
+        },
+      };
+    } else if (width <= 768) {
+      return {
+        infoCards: {
+          ...cardStyles.infoCards,
+          gridTemplateColumns: "repeat(2, 1fr)",
+          marginTop: "1rem",
+        },
+        heroContent: {
+          ...cardStyles.heroContent,
+          flexDirection: "column",
+          height: "auto",
+          padding: "2.5rem 2rem",
+          alignItems: "center",
+        },
+        heroTagline: {
+          ...cardStyles.heroTagline,
+          textAlign: "center",
+          marginTop: "1.5rem",
+          marginRight: "0",
+          maxWidth: "100%",
+        },
+        heroTitle: {
+          ...cardStyles.heroTitle,
+          fontSize: "2.5rem",
+        },
+      };
+    } else if (width <= 1024) {
+      return {
+        infoCards: {
+          ...cardStyles.infoCards,
+          gridTemplateColumns: "repeat(2, 1fr)",
+        },
+        heroContent: {
+          ...cardStyles.heroContent,
+          padding: "3rem 2rem",
+        },
+      };
+    } else if (width <= 1200) {
+      return {
+        infoCards: {
+          ...cardStyles.infoCards,
+          gridTemplateColumns: "repeat(3, 1fr)",
+        },
+      };
+    }
+
+    return {};
   };
 
-  const styles = `
-    .certifications-section {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      background: #ffffff;
-      min-height: 100vh;
-      overflow: hidden;
-      position: relative;
-      margin-top: 15rem;
-      margin-right: 3rem;
-      margin-left: 3rem;
-      border-radius: 20px;
-    }
+  const [windowWidth, setWindowWidth] = React.useState(
+    typeof window !== "undefined" ? window.innerWidth : 1200
+  );
 
-    /* Animated background elements */
-    .certifications-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-    }
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
-    .certifications-background::before,
-    .certifications-background::after {
-      content: '';
-      position: absolute;
-      background: rgba(48, 175, 184, 0.1);
-      border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
-    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-    .certifications-background::before {
-      width: 80px;
-      height: 80px;
-      top: 20%;
-      left: 10%;
-      animation-delay: 0s;
-    }
+  const responsiveStyles = getResponsiveStyles();
 
-    .certifications-background::after {
-      width: 120px;
-      height: 120px;
-      top: 60%;
-      right: 15%;
-      animation-delay: 2s;
-    }
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-    .certifications-overlay {
-      position: absolute;
-      top: 80%;
-      left: 20%;
-      width: 60px;
-      height: 60px;
-      background: rgba(48, 175, 184, 0.1);
-      border-radius: 50%;
-      animation: float 6s ease-in-out infinite 4s;
-      z-index: 0;
-    }
+  useEffect(() => {
+    // Trigger animations after component mounts
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
 
-    @keyframes float {
-      0%, 100% { 
-        transform: translateY(0px) rotate(0deg); 
-      }
-      50% { 
-        transform: translateY(-20px) rotate(180deg); 
-      }
-    }
+    return () => clearTimeout(timer);
+  }, []);
 
-    .certifications-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 80px 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .certifications-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-      margin-bottom: 80px;
-    }
-
-    .title-section h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, #30AFB8, #2A9BA3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      line-height: 1.1;
-    }
-
-    .description-section {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .description-section p {
-      font-size: 1.25rem;
-      color: #333333;
-      line-height: 1.8;
-    }
-
-    .learn-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #30AFB8 0%, #2A9BA3 100%);
-      border: 2px solid transparent;
-      color: white;
-      padding: 16px 32px;
-      border-radius: 60px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      align-self: flex-start;
-      animation: pulse 2s infinite;
-    }
-
-    .learn-more::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .learn-more:hover::before {
-      left: 100%;
-    }
-
-    .learn-more:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(48, 175, 184, 0.3);
-      background: linear-gradient(135deg, #26D0CE 0%, #30AFB8 100%);
-    }
-
-    .learn-more svg {
-      transition: transform 0.3s ease;
-    }
-
-    .learn-more:hover svg {
-      transform: translateX(5px);
-    }
-
-    @keyframes pulse {
-      0% { 
-        box-shadow: 0 0 0 0 rgba(48, 175, 184, 0.4); 
-      }
-      70% { 
-        box-shadow: 0 0 0 20px rgba(48, 175, 184, 0); 
-      }
-      100% { 
-        box-shadow: 0 0 0 0 rgba(48, 175, 184, 0); 
-      }
-    }
-
-    .certifications-grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-
-    .certification-card {
-      background: white;
-      border: 2px solid #f0f0f0;
-      border-radius: 16px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      position: relative;
-      overflow: hidden;
-      animation: fadeInUp 0.8s ease forwards;
-      opacity: 0;
-      transform: translateY(30px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      width: 280px;
-      height: 240px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .certification-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 40px rgba(48, 175, 184, 0.2);
-      border-color: #30AFB8;
-    }
-
-    .certification-card:nth-child(1) { animation-delay: 0.1s; }
-    .certification-card:nth-child(2) { animation-delay: 0.2s; }
-    .certification-card:nth-child(3) { animation-delay: 0.3s; }
-    .certification-card:nth-child(4) { animation-delay: 0.4s; }
-    .certification-card:nth-child(5) { animation-delay: 0.5s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .cert-logo {
-      max-width: 200px;
-      max-height: 180px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-    }
-
-    .certification-card:hover .cert-logo {
-      transform: scale(1.05);
-    }
-
-    /* Modal Styles */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      margin-top: 2rem;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      pointer-events: none;
-    }
-
-    .modal-overlay.show {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .modal-content {
-      position: relative;
-      background: transparent;
-      border-radius: 20px;
-      padding: 0;
-      max-width: 90vw;
-      max-height: 90vh;
-      transform: scale(0.8);
-      transition: transform 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-overlay.show .modal-content {
-      transform: scale(1);
-    }
-
-    .modal-image {
-      max-width: 70vw;
-      max-height: 70vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      color: white;
-      z-index: 10;
-    }
-
-    .modal-close:hover {
-      background: #30AFB8;
-      color: white;
-      transform: scale(1.1);
-    }
-
-    .modal-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #30AFB8;
-      margin-bottom: 10px;
-    }
-
-    .modal-description {
-      font-size: 1.1rem;
-      color: #666;
-      line-height: 1.6;
-      max-width: 600px;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      color: #666;
-    }
-
-    .modal-close:hover {
-      background: #30AFB8;
-      color: white;
-      transform: scale(1.1);
-    }
-
-    /* Responsive design */
-    @media (max-width: 1024px) {
-      .certifications-section {
-        margin-top: 12rem;
-      }
-      
-      .certifications-header {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-      }
-      
-      .learn-more {
-        align-self: center;
-      }
-      
-      .certifications-grid {
-        gap: 30px;
-      }
-
-      .certification-card {
-        width: 240px;
-        height: 200px;
-        padding: 25px;
-      }
-
-      .cert-logo {
-        max-width: 180px;
-        max-height: 150px;
-      }
-
-      .modal-content {
-        padding: 30px;
-      }
-
-      .modal-image {
-        max-width: 75vw;
-        max-height: 65vh;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .certifications-section {
-        margin-top: 8rem;
-      }
-      
-      .certifications-container {
-        padding: 40px 15px;
-      }
-
-      .certifications-header {
-        margin-bottom: 50px;
-      }
-
-      .certifications-grid {
-        gap: 20px;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .certification-card {
-        padding: 20px;
-        width: 220px;
-        height: 180px;
-      }
-
-      .description-section p {
-        font-size: 1.1rem;
-      }
-      
-      .cert-logo {
-        max-width: 160px;
-        max-height: 130px;
-      }
-
-      .modal-content {
-        padding: 25px;
-        margin: 20px;
-      }
-
-      .modal-image {
-        max-width: 85vw;
-        max-height: 60vh;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .certifications-section {
-        margin-top: 6rem;
-      }
-      
-      .certification-card {
-        width: 200px;
-        height: 160px;
-        padding: 15px;
-      }
-      
-      .cert-logo {
-        max-width: 140px;
-        max-height: 110px;
-      }
-
-      .modal-content {
-        padding: 20px;
-        margin: 15px;
-      }
-
-      .modal-title {
-        font-size: 1.3rem;
-      }
-
-      .modal-description {
-        font-size: 1rem;
-      }
-    }
-  `;
+  const handleVideoLoad = () => {
+    setVideoLoaded(true);
+  };
 
   return (
-    <>
-      <style>{styles}</style>
-      <div className="certifications-section">
-        <div className="certifications-background"></div>
-        <div className="certifications-overlay"></div>
-        
-        <div className="certifications-container">
-          <div className="certifications-header">
-            <div className="title-section">
-              <h1>Certifications &<br />Standards</h1>
-            </div>
-            <div className="description-section">
-              <p>
-                Our commitment to excellence is reflected in our globally recognized 
-                certifications. From responsible forestry to quality assurance and hygiene 
-                safety, every product meets the highest benchmarks.
-              </p>
-              <a href="#" className="learn-more">
-                Learn More <ArrowUpRight size={16} />
-              </a>
-            </div>
-          </div>
-          
-          <div className="certifications-grid">
-            {certifications.map((cert) => (
-              <div 
-                key={cert.id} 
-                className="certification-card"
-                onMouseEnter={() => handleMouseEnter(cert)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <img 
-                  src={cert.logo} 
-                  alt={cert.alt} 
-                  className="cert-logo" 
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+    <div style={cardStyles.heroSection}>
+      <div style={cardStyles.overlay}></div>
 
-        {/* Modal */}
-        <div 
-          className={`modal-overlay ${showModal ? 'show' : ''}`}
-          onMouseEnter={handleModalMouseEnter}
-          onMouseLeave={handleModalMouseLeave}
-        >
-          <div className="modal-content">
-            <button 
-              className="modal-close"
-              onClick={() => {
-                setShowModal(false);
-                setHoveredCert(null);
-              }}
-            >
-              <X size={20} />
-            </button>
-            {hoveredCert && (
-              <img 
-                src={hoveredCert.logo} 
-                alt={hoveredCert.alt} 
-                className="modal-image" 
-              />
-            )}
-          </div>
+      <div style={responsiveStyles.heroContent || cardStyles.heroContent}>
+        <div style={{ flex: 1 }}>
+          <h1 style={responsiveStyles.heroTitle || cardStyles.heroTitle}>
+            Sustainable Hygiene for a Better Tomorrow
+          </h1>
+          <p style={cardStyles.taglineText}>
+            Our products are environmentally friendly and Recyclable
+          </p>
         </div>
       </div>
-    </>
-  );
-};
 
-export default Certification;
+      <div style={responsiveStyles.infoCards || cardStyles.infoCards}>
+        {/* Eco-Conscious Manufacturing Card */}
+        <div
+          style={getCardStyle(0)}
+          onMouseEnter={() => setHoveredCard(0)}
+          onMouseLeave={() => setHoveredCard(null)}
+        >
+          <div style={getHalfBgStyle(0)}></div>
+          <img src="/pdf/pdf1_page-0001.jpg" />
+        </div>
+
+        {/* Employee Wellbeing Card */}
+        <div
+          style={getCardStyle(1)}
+          onMouseEnter={() => setHoveredCard(1)}
+          onMouseLeave={() => setHoveredCard(null)}
+        >
+          <div style={getHalfBgStyle(1)}></div>
+          <img src="/pdf/pdf2.jpg" />
+        </div>
+
+        {/* Responsible Governance Card */}
+        <div
+          style={getCardStyle(2)}
+          onMouseEnter={() => setHoveredCard(2)}
+          onMouseLeave={() => setHoveredCard(null)}
+        >
+          <div style={getHalfBgStyle(2)}></div>
+          <img src="/pdf/pdf3-Image.jpg" />
+        </div>
+
+        {/* Ethical & Green Supply Chain Card */}
+        <div
+          style={getCardStyle(3)}
+          onMouseEnter={() => setHoveredCard(3)}
+          onMouseLeave={() => setHoveredCard(null)}
+        >
+          <div style={getHalfBgStyle(3)}></div>
+          <img src="/pdf/pdf4_page-0001.jpg" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Cards;

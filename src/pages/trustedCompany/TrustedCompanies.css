@@ -2,7 +2,6 @@
 
 .home-trusted-section {
   padding: 4rem 0;
-  background-color: #1D9FB8;
   margin-right: 3rem;
   margin-left: 3rem;
   margin-top: 3rem;
@@ -22,14 +21,14 @@
 .home-trusted-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: white;
+  color: black;
   margin-bottom: 1rem;
   font-family: Arial, sans-serif;
 }
 
 .home-trusted-description {
   font-size: 1.1rem;
-  color: white;
+  color: black;
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;

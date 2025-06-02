@@ -48,11 +48,11 @@ const TrustedCompanies = () => {
   const trustedCompaniesStyles = {
     trustedSection: {
       padding: "4rem 0",
-      backgroundColor: "#1D9FB8",
     },
     trustedContainer: {
       padding: "0 1rem",
       marginTop: "2rem",
+      marginRight: "3rem",
     },
     trustedHeaderWrapper: {
       textAlign: "center",

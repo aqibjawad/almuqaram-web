@@ -22,7 +22,7 @@ const HomeDemands = () => {
     <div
       style={{ overflow: "hidden", backgroundColor: "white" }}
       id="demandPage"
-      className="demands"
+      className="demands mt-5"
     >
       <Row>
         <Col md={9}>
